@@ -248,6 +248,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
  html{scroll-behavior:auto}
  *,*::before,*::after{transition:none!important;animation:none!important}
 }
+.highlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0}.highlight{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}.highlight small{display:block;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px}.highlight strong{display:block;font-size:27px;letter-spacing:-1px;line-height:1.3;margin:10px 0;color:var(--text)}.highlight h3{font-size:15px;margin:0 0 7px}.highlight p{color:var(--muted);font-size:12px;line-height:1.65;margin:0 0 12px}.highlight a{font-size:12px;color:var(--blue);font-weight:700}.highlight a:hover{text-decoration:underline}@media(max-width:820px){.highlight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:550px){.highlight-grid{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -382,6 +383,18 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 </div>
 </section>
 
+<!-- RESEARCH HIGHLIGHTS -->
+<section class="section alt" id="highlights"><div class="container">
+<div class="section-head reveal"><div class="eyebrow">Research evidence</div><h2>Five studies. Five measurable findings.</h2><p>A quick view of reported and source-calculated results, with links to each project's full analysis. Metrics describe different risk domains and are not directly comparable.</p></div>
+<div class="highlight-grid">
+<article class="highlight"><small>Credit risk · Model discrimination</small><strong>82.15% AUC</strong><h3>Probability of Default model</h3><p>Logistic-regression model on approximately 15,553 borrowers; reported Gini 64.30%, calibrated to a 2% mean PD target.</p><a href="#analytics" data-jump-analysis="credit">Explore credit model ↗</a></article>
+<article class="highlight"><small>Multi-asset · Historical tail risk</small><strong>−0.24% ES</strong><h3>Equity Market Neutral</h3><p>The selected absolute-return strategy has a reported maximum drawdown of −2.53%. ES reflects the report's weekly-data analysis.</p><a href="#analytics" data-jump-analysis="market">Explore fund comparison ↗</a></article>
+<article class="highlight"><small>Operational risk · Simulated loss</small><strong>€1.323B VaR</strong><h3>99.9% aggregate-loss estimate</h3><p>Reported Monte Carlo estimate using a loss-distribution framework; an academic model output, not regulatory capital.</p><a href="#analytics" data-jump-analysis="operational">Explore loss simulation ↗</a></article>
+<article class="highlight"><small>Sovereign risk · Descriptive sample</small><strong>50 countries</strong><h3>Median yield: 4.30%</h3><p>Calculated from the published cross-country dataset. Sample yields are historical project inputs, not live quotations.</p><a href="#analytics" data-jump-analysis="sovereign">Explore sovereign yields ↗</a></article>
+<article class="highlight"><small>Time-series risk · 99.9% tail</small><strong>29.35% ES</strong><h3>Student-t MELI estimate</h3><p>Previously corrected Python estimate for the daily-return model; materially higher than historical ES of 18.09%.</p><a href="#analytics" data-jump-analysis="meli">Explore MELI tail risk ↗</a></article>
+</div>
+<p class="muted" style="font-size:12px">Source integrity: Credit and multi-asset values are quoted from the original academic group reports. Operational figures are reported project results. Sovereign statistics are computed from the repository CSV. MELI estimates are corrected Python results. These are not live investment recommendations.</p>
+</div></section>
 <!-- PROJECTS -->
 <section class="section alt" id="projects">
 <div class="container">
@@ -571,8 +584,8 @@ const projects=[
   tags:["Probability of Default","Credit Modelling","Excel"],
   question:"How can borrower risk be assessed and represented through a structured credit model?",
   method:"Excel-based quantitative credit analysis and Probability of Default concepts. The repository description also references borrower classification and logistic regression.",
-  findings:"The public README documents the model and supporting report but does not publish numerical performance estimates.",
-  limitations:"The model workbook and report should be consulted before quoting calibration, accuracy or discrimination metrics."
+  findings:"The academic report documents approximately 15,553 borrowers, a 2.43% observed default rate, AUC 82.15%, Gini 64.30% and calibration to a 2% target average PD.",
+  limitations:"Reported AUC and Gini have not been independently re-estimated; the report does not establish out-of-sample validation, and the model uses one principal predictor."
  },
  {
   id:"market",category:"market",title:"Multi-Asset Market Risk Analysis",
@@ -581,8 +594,8 @@ const projects=[
   tags:["VaR","Expected Shortfall","Sharpe","Sortino","Drawdown"],
   question:"How do asset classes and investment strategies compare on downside risk and risk-adjusted performance?",
   method:"Excel-based VaR, Expected Shortfall, volatility, maximum drawdown, Sharpe and Sortino analysis.",
-  findings:"Three asset categories are documented. Numerical return and risk estimates remain in the supporting workbooks and report.",
-  limitations:"Historical sample choice, risk horizons, portfolio construction and cross-asset comparability affect interpretation."
+  findings:"The report selects Equity US 1, Bond 3 and Equity Market Neutral. Their reported Expected Shortfalls are −5.88%, −1.37% and −0.24%, respectively."
+  limitations:"Report figures are historical academic estimates, not independently recomputed. Differences in investment mandate and volatility make cross-category rankings conditional."
  },
  {
   id:"operational",category:"operational",title:"Operational Risk Capital Modelling",
@@ -1085,6 +1098,7 @@ fetch("Yash_Hingorani_CV.pdf",{method:"HEAD"})
   }
  })
  .catch(()=>{});
+document.querySelectorAll("[data-jump-analysis]").forEach(link=>link.addEventListener("click",()=>{const key=link.dataset.jumpAnalysis;const tab=document.querySelector('[data-analysis="'+key+'"]');if(tab)tab.click();}));
 </script>
 </body>
 </html>
