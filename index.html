@@ -4,221 +4,1011 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yash Hingorani | Professional Portfolio</title>
+  <meta name="theme-color" content="#080d12">
+
+  <meta name="description"
+    content="Yash Hingorani's financial risk management and quantitative analysis portfolio, featuring credit risk, market risk, operational risk, fixed income, and time series projects.">
+
+  <title>Yash Hingorani | Quantitative Risk Portfolio</title>
 
   <style>
+    :root {
+      --bg: #080d12;
+      --panel: #101820;
+      --panel-2: #131f28;
+      --border: #263a42;
+      --text: #e7f3f0;
+      --muted: #93a9ae;
+      --green: #55e6ad;
+      --cyan: #5ccbe5;
+      --amber: #f1c77b;
+      --mono: "Consolas", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1220;
-      color: white;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 90px 20px 60px;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(
+          rgba(85,230,173,.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(85,230,173,.025) 1px,
+          transparent 1px
+        );
+      background-size: 40px 40px;
     }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      color: #60a5fa;
-    }
-
-    .subtitle {
-      color: #aabbd0;
-      font-size: 18px;
-    }
-
-    section {
-      max-width: 950px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    .card {
-      background: #172338;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 15px 0;
-    }
-
-    a.button {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 12px 18px;
-      margin: 8px 8px 8px 0;
-      border-radius: 8px;
+    a {
+      color: var(--green);
       text-decoration: none;
     }
 
-    a.button:hover {
-      background: #1d4ed8;
+    a:hover {
+      color: white;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: rgba(8,13,18,.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .navlinks a {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .navlinks a:hover {
+      color: var(--green);
+    }
+
+    .statusbar {
+      border-bottom: 1px solid var(--border);
+      background: #0d161d;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .status-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    .online {
+      color: var(--green);
+    }
+
+    .hero {
+      padding: 92px 0 70px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.16;
+      letter-spacing: -2px;
+      margin: 20px 0;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 640px;
+    }
+
+    .cursor {
+      display: inline-block;
+      background: var(--green);
+      width: 9px;
+      height: 20px;
+      vertical-align: middle;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #07110e;
+    }
+
+    .btn-primary:hover {
+      background: #91ffd0;
+      color: #07110e;
+    }
+
+    .btn-outline:hover {
+      background: rgba(85,230,173,.1);
+    }
+
+    .terminal {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      overflow: hidden;
+      box-shadow: 0 20px 55px rgba(0,0,0,.3);
+    }
+
+    .terminal-head {
+      background: #19262e;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .red { background: #ed7777; }
+    .yellow { background: #e7be70; }
+    .green { background: #55e6ad; }
+
+    .terminal-head .filename {
+      margin-left: 8px;
+    }
+
+    .terminal-body {
+      padding: 22px;
+      font-size: 12px;
+      line-height: 2.1;
+    }
+
+    .prompt { color: var(--green); }
+    .key { color: var(--cyan); }
+    .value { color: var(--text); }
+    .comment { color: var(--muted); }
+
+    section {
+      padding: 55px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-index {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 0;
+      letter-spacing: -1px;
+    }
+
+    .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .about {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+
+    .about p:last-child {
+      margin-bottom: 0;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .metric-number {
+      font-size: 30px;
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 27px;
+      display: flex;
+      flex-direction: column;
+      transition: .2s;
+    }
+
+    .project:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+      background: var(--panel-2);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+
+    .project-id {
+      color: var(--green);
+      font-size: 11px;
+    }
+
+    .project-type {
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 10px;
+    }
+
+    .project h3 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 0 0 13px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin: 17px 0 22px;
+    }
+
+    .tag {
+      background: rgba(92,203,229,.07);
+      border: 1px solid rgba(92,203,229,.2);
+      color: var(--cyan);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 10px;
+    }
+
+    .project-link {
+      border-top: 1px solid var(--border);
+      padding-top: 17px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+
+    .skill-panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .skill-panel h3 {
+      font-size: 13px;
+      color: var(--green);
+      margin: 0 0 16px;
+    }
+
+    .skill-panel p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+      margin: 0;
+    }
+
+    .contact-panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-line {
+      overflow-wrap: anywhere;
+      font-size: 13px;
+      margin: 20px 0;
+    }
+
+    .contact-line span {
+      color: var(--cyan);
     }
 
     footer {
-      text-align: center;
-      padding: 35px;
-      color: #aabbd0;
+      margin-top: 55px;
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 11px;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 60px 20px 40px;
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 65px 0 40px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        padding: 15px 0;
+      }
+
+      .navlinks {
+        gap: 14px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
       }
 
       h1 {
-        font-size: 32px;
+        letter-spacing: -1px;
       }
 
-      .card {
-        padding: 20px;
+      section {
+        padding: 38px 0;
       }
+
+      .terminal-body {
+        padding: 16px;
+        font-size: 11px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .cursor { animation: none; }
+      .project { transition: none; }
+      .project:hover { transform: none; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Yash Hingorani</h1>
+  <!-- NAVIGATION -->
 
-    <p class="subtitle">
-      Financial Risk Management | Data Analytics | FinTech
-    </p>
-
-    <p>Welcome to my professional portfolio.</p>
-  </header>
-
-  <section>
-    <h2>About Me</h2>
-
-    <p>
-      Master's student in Financial Risk Management at
-      Politecnico di Milano, with interests in quantitative
-      risk modelling, financial data analytics, and FinTech.
-    </p>
-  </section>
-
-  <section>
-    <h2>Featured Projects</h2>
-
-    <!-- Project 1 -->
-    <div class="card">
-      <h3>Credit Risk Modelling</h3>
-
-      <p>
-        Probability of Default modelling using logistic
-        regression, portfolio segmentation, and risk ratings.
-      </p>
-
-      <a class="button"
-         href="https://github.com/YASHHIINGORANI67/credit-risk-modelling"
-         target="_blank"
-         rel="noopener noreferrer">
-        View Project on GitHub
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <span>&gt;_</span> YASH.HINGORANI
       </a>
+
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#about">ABOUT</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- TERMINAL STATUS -->
+
+  <div class="statusbar">
+    <div class="container status-inner">
+      <span>
+        <span class="online">●</span>
+        QUANTITATIVE RISK PORTFOLIO
+      </span>
+
+      <span>
+        SYSTEM: GITHUB PAGES / VERSION 2.0
+      </span>
+    </div>
+  </div>
+
+  <main id="home">
+
+    <!-- HERO -->
+
+    <div class="container hero">
+
+      <div>
+        <div class="eyebrow">
+          // FINANCIAL RISK MANAGEMENT
+        </div>
+
+        <h1>
+          Analysing Risk.<br>
+          <span>Building Models.</span><br>
+          Finding Insights.<span class="cursor"></span>
+        </h1>
+
+        <p class="lead">
+          I'm Yash Hingorani, a Master's student in
+          Financial Risk Management at Politecnico di Milano.
+        </p>
+
+        <p class="lead">
+          Exploring quantitative finance, financial markets,
+          statistical modelling, and data-driven risk analysis
+          through practical research and programming projects.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">
+            &gt; EXPLORE PROJECTS
+          </a>
+
+          <a class="btn btn-outline"
+             href="https://github.com/YASHHIINGORANI67"
+             target="_blank"
+             rel="noopener noreferrer">
+            VIEW GITHUB ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- TERMINAL WINDOW -->
+
+      <div class="terminal">
+        <div class="terminal-head">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="filename">risk_profile.sh</span>
+        </div>
+
+        <div class="terminal-body">
+          <div class="prompt">
+            $ ./load_profile
+          </div>
+
+          <div class="comment">
+            # Loading quantitative finance profile
+          </div>
+
+          <div>
+            <span class="key">NAME:</span>
+            <span class="value">Yash Hingorani</span>
+          </div>
+
+          <div>
+            <span class="key">EDUCATION:</span>
+            <span class="value">Politecnico di Milano</span>
+          </div>
+
+          <div>
+            <span class="key">FIELD:</span>
+            <span class="value">Financial Risk Management</span>
+          </div>
+
+          <div>
+            <span class="key">PROJECTS:</span>
+            <span class="value">05</span>
+          </div>
+
+          <div>
+            <span class="key">TOOLS:</span>
+            <span class="value">Python / Excel / Gretl</span>
+          </div>
+
+          <div class="prompt">
+            $ profile loaded successfully_
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="card">
-      <h3>Multi-Asset Market Risk Analysis</h3>
+    <!-- ABOUT -->
 
-      <p>
-        Quantitative market risk analysis across equities,
-        bonds, and absolute return strategies using VaR,
-        Expected Shortfall, drawdown, and risk-adjusted
-        performance metrics.
-      </p>
+    <section id="about">
+      <div class="container">
 
-      <a class="button"
-         href="https://github.com/YASHHIINGORANI67/multi-asset-market-risk-analysis"
-         target="_blank"
-         rel="noopener noreferrer">
-        View Project on GitHub
-      </a>
-    </div>
+        <div class="section-head">
+          <span class="section-index">01 /</span>
+          <h2>ABOUT_ME</h2>
+          <div class="rule"></div>
+        </div>
 
-    <!-- Project 3 -->
-    <div class="card">
-      <h3>Operational Risk Capital Modelling</h3>
+        <div class="about">
+          <p>
+            I am a Master's student in Financial Risk
+            Management at Politecnico di Milano,
+            with interests in quantitative risk modelling,
+            financial data analytics, and FinTech.
+          </p>
 
-      <p>
-        Loss Distribution Approach, Extreme Value Theory,
-        and Monte Carlo simulation for operational
-        risk capital estimation.
-      </p>
+          <p>
+            My work focuses on applying statistical,
+            econometric, and computational techniques
+            to understand financial risk.
+          </p>
 
-      <a class="button"
-         href="https://github.com/YASHHIINGORANI67/operational-risk-capital-modelling"
-         target="_blank"
-         rel="noopener noreferrer">
-        View Project on GitHub
-      </a>
-    </div>
+          <p>
+            Through practical projects, I explore
+            credit risk, market risk, operational risk,
+            sovereign bond markets, and financial
+            time series analysis.
+          </p>
+        </div>
 
-    <!-- Project 4 -->
-    <div class="card">
-      <h3>Sovereign Bond Yield Analysis</h3>
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-number">05</div>
+            <div class="metric-label">GITHUB PROJECTS</div>
+          </div>
 
-      <p>
-        Cross-sectional econometric analysis of 10-year
-        sovereign government bond yields across 50 countries
-        using Python. Includes OLS regression, macroeconomic
-        determinants, statistical diagnostic tests,
-        and model refinement.
-      </p>
+          <div class="metric">
+            <div class="metric-number">03</div>
+            <div class="metric-label">CORE RISK DOMAINS</div>
+          </div>
 
-      <a class="button"
-         href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis"
-         target="_blank"
-         rel="noopener noreferrer">
-        View Project on GitHub
-      </a>
-    </div>
+          <div class="metric">
+            <div class="metric-number">PY</div>
+            <div class="metric-label">PRIMARY PROGRAMMING LANGUAGE</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Project 5 -->
-    <div class="card">
-      <h3>Financial Time Series Risk &amp; Trading Strategy Analysis</h3>
+    <!-- PROJECTS -->
 
-      <p>
-        Quantitative analysis of MercadoLibre (MELI)
-        stock returns from January 2022 to January 2026.
-        Includes historical and Student-t Value at Risk,
-        Expected Shortfall, ARMA return forecasting,
-        GARCH volatility modelling, and MACD trading
-        strategy evaluation using Python, Gretl, and Excel.
-      </p>
+    <section id="projects">
+      <div class="container">
 
-      <a class="button"
-         href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
-         target="_blank"
-         rel="noopener noreferrer">
-        View Project on GitHub
-      </a>
-    </div>
+        <div class="section-head">
+          <span class="section-index">02 /</span>
+          <h2>PROJECT_DIRECTORY</h2>
+          <div class="rule"></div>
+        </div>
 
-  </section>
+        <p class="section-desc">
+          SELECTED WORK / FINANCIAL RISK / ECONOMETRICS /
+          QUANTITATIVE ANALYSIS
+        </p>
 
-  <section>
-    <h2>Contact</h2>
+        <div class="project-grid">
 
-    <p>
-      Email:
-      <a style="color:#93c5fd"
-         href="mailto:Yash.hingorani@gsom.polimi.it">
-        Yash.hingorani@gsom.polimi.it
-      </a>
-    </p>
-  </section>
+          <!-- PROJECT 1 -->
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-id">PROJECT_001</span>
+              <span class="project-type">CREDIT RISK</span>
+            </div>
+
+            <h3>Credit Risk Modelling</h3>
+
+            <p>
+              Probability of Default modelling using
+              logistic regression, portfolio segmentation,
+              and risk ratings to examine credit risk
+              and borrower default probabilities.
+            </p>
+
+            <div class="tags">
+              <span class="tag">LOGISTIC REGRESSION</span>
+              <span class="tag">PD MODELLING</span>
+              <span class="tag">PYTHON</span>
+            </div>
+
+            <a class="project-link"
+              href="https://github.com/YASHHIINGORANI67/credit-risk-modelling"
+              target="_blank"
+              rel="noopener noreferrer">
+              &gt; OPEN REPOSITORY ↗
+            </a>
+          </article>
+
+          <!-- PROJECT 2 -->
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-id">PROJECT_002</span>
+              <span class="project-type">MARKET RISK</span>
+            </div>
+
+            <h3>Multi-Asset Market Risk Analysis</h3>
+
+            <p>
+              Quantitative market risk analysis across
+              equities, bonds, and absolute return
+              strategies using VaR, Expected Shortfall,
+              drawdown, and risk-adjusted performance metrics.
+            </p>
+
+            <div class="tags">
+              <span class="tag">VaR</span>
+              <span class="tag">EXPECTED SHORTFALL</span>
+              <span class="tag">PORTFOLIO RISK</span>
+            </div>
+
+            <a class="project-link"
+              href="https://github.com/YASHHIINGORANI67/multi-asset-market-risk-analysis"
+              target="_blank"
+              rel="noopener noreferrer">
+              &gt; OPEN REPOSITORY ↗
+            </a>
+          </article>
+
+          <!-- PROJECT 3 -->
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-id">PROJECT_003</span>
+              <span class="project-type">OPERATIONAL RISK</span>
+            </div>
+
+            <h3>Operational Risk Capital Modelling</h3>
+
+            <p>
+              Loss Distribution Approach, Extreme Value
+              Theory, and Monte Carlo simulation for
+              operational risk capital estimation and
+              loss modelling.
+            </p>
+
+            <div class="tags">
+              <span class="tag">LDA</span>
+              <span class="tag">EVT</span>
+              <span class="tag">MONTE CARLO</span>
+            </div>
+
+            <a class="project-link"
+              href="https://github.com/YASHHIINGORANI67/operational-risk-capital-modelling"
+              target="_blank"
+              rel="noopener noreferrer">
+              &gt; OPEN REPOSITORY ↗
+            </a>
+          </article>
+
+          <!-- PROJECT 4 -->
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-id">PROJECT_004</span>
+              <span class="project-type">FIXED INCOME</span>
+            </div>
+
+            <h3>Sovereign Bond Yield Analysis</h3>
+
+            <p>
+              Cross-sectional econometric analysis of
+              10-year sovereign government bond yields
+              across 50 countries using Python.
+              Includes OLS regression, macroeconomic
+              determinants, diagnostic testing,
+              and model refinement.
+            </p>
+
+            <div class="tags">
+              <span class="tag">OLS</span>
+              <span class="tag">ECONOMETRICS</span>
+              <span class="tag">PYTHON</span>
+            </div>
+
+            <a class="project-link"
+              href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis"
+              target="_blank"
+              rel="noopener noreferrer">
+              &gt; OPEN REPOSITORY ↗
+            </a>
+          </article>
+
+          <!-- PROJECT 5 -->
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-id">PROJECT_005</span>
+              <span class="project-type">TIME SERIES</span>
+            </div>
+
+            <h3>
+              Financial Time Series Risk &amp;
+              Trading Strategy Analysis
+            </h3>
+
+            <p>
+              Analysis of MercadoLibre (MELI) stock
+              returns from January 2022 to January 2026.
+              Includes historical and Student-t VaR,
+              Expected Shortfall, ARMA forecasting,
+              GARCH volatility modelling, and
+              MACD trading strategy evaluation.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ARMA</span>
+              <span class="tag">GARCH</span>
+              <span class="tag">MACD</span>
+              <span class="tag">PYTHON</span>
+              <span class="tag">GRETL</span>
+            </div>
+
+            <a class="project-link"
+              href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
+              target="_blank"
+              rel="noopener noreferrer">
+              &gt; OPEN REPOSITORY ↗
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="section-index">03 /</span>
+          <h2>TECHNICAL_STACK</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-panel">
+            <h3>&gt; PROGRAMMING &amp; TOOLS</h3>
+            <p>
+              Python<br>
+              pandas / NumPy<br>
+              SciPy / statsmodels<br>
+              Microsoft Excel<br>
+              Gretl<br>
+              Git / GitHub
+            </p>
+          </div>
+
+          <div class="skill-panel">
+            <h3>&gt; RISK ANALYTICS</h3>
+            <p>
+              Value at Risk<br>
+              Expected Shortfall<br>
+              Credit Risk Modelling<br>
+              Portfolio Risk<br>
+              Operational Risk<br>
+              Monte Carlo Simulation
+            </p>
+          </div>
+
+          <div class="skill-panel">
+            <h3>&gt; QUANTITATIVE METHODS</h3>
+            <p>
+              Regression Analysis<br>
+              ARMA Models<br>
+              GARCH Models<br>
+              Extreme Value Theory<br>
+              Statistical Testing<br>
+              Financial Time Series
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="section-index">04 /</span>
+          <h2>CONTACT_TERMINAL</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="contact-panel">
+
+          <p>
+            Interested in discussing financial risk
+            management, quantitative analysis,
+            or related opportunities?
+          </p>
+
+          <div class="contact-line">
+            <span>$ email --to </span>
+            <a href="mailto:Yash.hingorani@gsom.polimi.it">
+              Yash.hingorani@gsom.polimi.it
+            </a>
+          </div>
+
+          <div class="contact-line">
+            <span>$ github --profile </span>
+            <a href="https://github.com/YASHHIINGORANI67"
+               target="_blank"
+               rel="noopener noreferrer">
+              YASHHIINGORANI67 ↗
+            </a>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary"
+               href="mailto:Yash.hingorani@gsom.polimi.it">
+              &gt; SEND EMAIL
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
 
   <footer>
-    &copy; 2026 Yash Hingorani
+    <div class="container footer-inner">
+      <span>
+        © 2026 Yash Hingorani
+      </span>
+
+      <span>
+        BUILT WITH HTML + CSS / HOSTED ON GITHUB PAGES
+      </span>
+    </div>
   </footer>
 
 </body>
