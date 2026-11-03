@@ -3,801 +3,261 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Yash Hingorani — Financial Risk Management and Quantitative Research. Five projects spanning credit, market, operational, sovereign bond and financial time series risk.">
 <meta name="author" content="Yash Hingorani">
-<meta name="description" content="Yash Hingorani | Financial Risk Management and Quantitative Research. Explore credit risk, market risk, operational risk, sovereign bond yields and financial time series research.">
-<meta name="robots" content="index, follow">
-
+<meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yashhiingorani67.github.io/">
-<meta property="og:title" content="Yash Hingorani | Financial Risk Research">
-<meta property="og:description" content="Quantitative finance, risk modelling, financial econometrics and five applied research projects.">
+<meta property="og:title" content="Yash Hingorani | Quantitative Risk Research">
+<meta property="og:description" content="Financial risk analytics, empirical research, econometrics and portfolio modelling.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yash Hingorani | Quantitative Research">
-
-<title>Yash Hingorani | Financial Risk & Quantitative Research</title>
+<title>Yash Hingorani | Quantitative Risk Research</title>
 
 <style>
-:root {
-  color-scheme:light;
-  --bg:#ffffff;
-  --surface:#ffffff;
-  --soft:#f7f9fc;
-  --soft2:#edf3fc;
-  --text:#142033;
-  --muted:#62738a;
-  --border:#dfe7f0;
-  --accent:#215cbd;
-  --accent2:#0b8795;
-  --accent-soft:#eaf2ff;
-  --shadow:0 8px 30px rgba(23,45,76,.05);
+:root{
+ color-scheme:light;
+ --bg:#fff;--panel:#fff;--soft:#f7f9fc;
+ --text:#142033;--muted:#62738a;--line:#dfe7f0;
+ --blue:#215cbd;--teal:#087e91;--tint:#eaf2ff;
+ --shadow:0 8px 28px rgba(23,45,76,.045);
 }
-
-html[data-theme="dark"] {
-  color-scheme:dark;
-  --bg:#0b1019;
-  --surface:#131c29;
-  --soft:#192535;
-  --soft2:#23344b;
-  --text:#eef4ff;
-  --muted:#a5b5cb;
-  --border:#304156;
-  --accent:#82b0ff;
-  --accent2:#65d4e0;
-  --accent-soft:#203754;
-  --shadow:0 8px 30px rgba(0,0,0,.15);
+html[data-theme="dark"]{
+ color-scheme:dark;
+ --bg:#0b1019;--panel:#131c29;--soft:#192535;
+ --text:#eef4ff;--muted:#a5b5cb;--line:#304156;
+ --blue:#82b0ff;--teal:#65d4e0;--tint:#203754;
+ --shadow:0 8px 28px rgba(0,0,0,.15);
 }
-
-* {box-sizing:border-box}
-
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Inter,"Segoe UI",Arial,sans-serif;
+ font-size:14px;line-height:1.7;
 }
-
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,"Segoe UI",Arial,sans-serif;
-  font-size:15px;
-  line-height:1.7;
-  transition:background .25s,color .25s;
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,summary:focus-visible{
+ outline:3px solid var(--blue);outline-offset:3px
 }
-
-a {color:inherit;text-decoration:none}
-button,input {font:inherit}
-button {cursor:pointer}
-button:disabled {opacity:.55;cursor:not-allowed}
-
-:focus-visible {
-  outline:3px solid var(--accent);
-  outline-offset:3px;
+.container{max-width:1170px;margin:auto;padding:0 24px}
+.hidden{display:none!important}
+.muted{color:var(--muted)}
+.skip{position:absolute;top:-100px;left:10px;background:#215cbd;color:white;padding:10px;z-index:999}
+.skip:focus{top:8px}
+header{
+ position:sticky;top:0;z-index:90;
+ background:var(--bg);border-bottom:1px solid var(--line)
 }
-
-.container {
-  max-width:1180px;
-  margin:auto;
-  padding:0 24px;
+.nav{
+ min-height:72px;display:flex;align-items:center;
+ justify-content:space-between;gap:15px
 }
-
-.muted {color:var(--muted)}
-.accent {color:var(--accent)}
-.hidden {display:none!important}
-
-.skip {
-  position:absolute;
-  top:-100px;
-  left:15px;
-  background:#215cbd;
-  color:white;
-  padding:10px 15px;
-  z-index:1000;
+.brand{font-size:17px;font-weight:850;letter-spacing:-.6px}
+.brand span{color:var(--blue)}
+.links{display:flex;align-items:center;gap:20px}
+.links a{font-size:12px;font-weight:650;color:var(--muted)}
+.links a:hover{color:var(--blue)}
+.nav-actions{display:flex;gap:8px}
+.icon-btn{
+ background:var(--panel);border:1px solid var(--line);
+ color:var(--text);border-radius:9px;width:39px;height:39px
 }
-
-.skip:focus {top:10px}
-
-/* NAVIGATION */
-
-.header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
+#menuToggle{display:none}
+.btn{
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:11px 17px;border:1px solid var(--line);
+ border-radius:9px;font-size:12px;font-weight:750;
+ background:var(--panel);color:var(--text);
+ transition:transform .2s
 }
-
-.navbar {
-  min-height:76px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:#215cbd;color:white;border-color:#215cbd}
+.hero{padding:83px 0 72px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:50px;align-items:center}
+.eyebrow{
+ color:var(--blue);font-size:10px;font-weight:850;
+ letter-spacing:1.8px;text-transform:uppercase
 }
-
-.logo {
-  font-size:17px;
-  font-weight:800;
-  letter-spacing:-.5px;
-  white-space:nowrap;
+h1{font-size:clamp(37px,5.3vw,67px);line-height:1.12;letter-spacing:-2px;margin:20px 0}
+h1 span{color:var(--blue)}
+.hero p{font-size:16px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.panel,.metric,.project{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:13px;box-shadow:var(--shadow)
 }
-
-.logo span {color:var(--accent)}
-
-.navlinks {
-  display:flex;
-  align-items:center;
-  gap:22px;
+.panel{padding:25px}
+.panel h3{margin:0 0 12px;font-size:18px}
+.panel p{color:var(--muted)}
+.profile{background:var(--soft)}
+.fact{padding:11px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border:0}
+.fact strong{display:block;font-size:13px}
+.fact small{display:block;font-size:11px;color:var(--muted)}
+.section{padding:74px 0}
+.section.alt{
+ background:var(--soft);
+ border-top:1px solid var(--line);
+ border-bottom:1px solid var(--line)
 }
-
-.navlinks a {
-  font-size:12px;
-  font-weight:650;
-  color:var(--muted);
+.section-head{margin-bottom:27px}
+.section-head h2{font-size:clamp(26px,3vw,35px);line-height:1.25;letter-spacing:-1px;margin:9px 0}
+.section-head p{color:var(--muted);font-size:13px;max-width:720px;margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.metric{padding:21px}
+.metric small{color:var(--muted);font-size:11px}
+.metric strong{display:block;font-size:31px;line-height:1.5;letter-spacing:-1px}
+.metric span{color:var(--blue);font-size:10px;font-weight:700}
+.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:15px}
+.domain{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:20px}
+.domain b{font-size:13px}
+.domain p{font-size:12px;color:var(--muted);margin-bottom:0}
+.featured{display:grid;grid-template-columns:1.3fr .9fr;gap:17px}
+.featured h3{font-size:27px;line-height:1.3}
+.tag-list{display:flex;flex-wrap:wrap;gap:7px;margin:17px 0}
+.tag{
+ font-size:10px;font-weight:650;padding:5px 9px;
+ background:var(--tint);color:var(--blue);
+ border:1px solid var(--line);border-radius:6px
 }
-
-.navlinks a:hover {color:var(--accent)}
-
-.nav-actions {display:flex;gap:9px}
-
-.icon-btn {
-  width:39px;
-  height:39px;
-  border:1px solid var(--border);
-  background:var(--surface);
-  color:var(--text);
-  border-radius:9px;
+/* ANALYTICS */
+.tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+.tab,.filter-btn,.chart-btn{
+ border:1px solid var(--line);background:var(--panel);
+ color:var(--muted);border-radius:8px;
+ padding:10px 13px;font-size:11px;font-weight:750
 }
-
-.menu-btn {display:none}
-
-.button {
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  padding:12px 18px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  background:var(--surface);
-  color:var(--text);
-  font-size:12px;
-  font-weight:700;
-  transition:transform .2s;
+.tab.active,.filter-btn.active,.chart-btn.active{
+ background:var(--tint);border-color:var(--blue);color:var(--blue)
 }
-
-.button:hover {transform:translateY(-2px)}
-
-.button.primary {
-  background:#215cbd;
-  color:#ffffff;
-  border-color:#215cbd;
+.analytics-title{font-size:23px;margin:0 0 7px;line-height:1.3}
+.analytics-description{color:var(--muted);font-size:13px;margin:0 0 22px}
+.research-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:17px}
+.research-metric{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:11px;padding:19px
 }
-
-.button.small {padding:9px 13px}
-
-/* HERO */
-
-.hero {
-  padding:85px 0 72px;
-  border-bottom:1px solid var(--border);
+.research-metric small{display:block;font-size:11px;color:var(--muted)}
+.research-metric strong{
+ display:block;font-size:clamp(21px,2.5vw,29px);
+ letter-spacing:-.6px;line-height:1.5;overflow-wrap:anywhere
 }
-
-.hero-grid {
-  display:grid;
-  grid-template-columns:1.4fr .8fr;
-  gap:60px;
-  align-items:center;
+.research-metric span{font-size:10px;color:var(--blue)}
+.analytics-grid{display:grid;grid-template-columns:1.3fr .85fr;gap:17px}
+.chart-head{
+ display:flex;justify-content:space-between;align-items:center;
+ flex-wrap:wrap;gap:12px;margin-bottom:17px
 }
-
-.eyebrow {
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.7px;
-  color:var(--accent);
-  text-transform:uppercase;
+.chart-head h3{margin:0}
+.chart-controls{display:flex;flex-wrap:wrap;gap:6px}
+.chart-btn{padding:7px 10px}
+.chart-frame svg{width:100%;height:auto;display:block}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:7px}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+.dot.blue{background:var(--blue)}
+.dot.teal{background:var(--teal)}
+.chart-caption{font-size:11px!important;color:var(--muted);margin-top:12px}
+.note{
+ background:var(--tint);border:1px solid var(--line);
+ border-radius:10px;padding:16px;margin-top:17px;
+ font-size:12px;color:var(--muted)
 }
-
-.hero h1 {
-  font-size:clamp(38px,5.5vw,68px);
-  line-height:1.12;
-  letter-spacing:-2.5px;
-  margin:20px 0;
-}
-
-.hero p {
-  color:var(--muted);
-  max-width:650px;
-  font-size:16px;
-}
-
-.hero-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:11px;
-  margin-top:28px;
-}
-
-.profile-card,.panel,.project,.metric {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:13px;
-  box-shadow:var(--shadow);
-}
-
-.profile-card {
-  padding:27px;
-  background:var(--soft);
-}
-
-.profile-card h3 {margin:0 0 18px}
-
-.profile-row {
-  padding:12px 0;
-  border-top:1px solid var(--border);
-}
-
-.profile-row small {
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.profile-row strong {font-size:13px}
-
-/* SECTIONS */
-
-.section {padding:75px 0}
-
-.section.alt {
-  background:var(--soft);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
-
-.section-head {
-  margin-bottom:29px;
-}
-
-.section-head h2 {
-  font-size:clamp(26px,3vw,35px);
-  letter-spacing:-1px;
-  line-height:1.25;
-  margin:9px 0;
-}
-
-.section-head p {
-  color:var(--muted);
-  max-width:680px;
-  font-size:13px;
-  margin:0;
-}
-
-.panel {padding:25px}
-.panel h3 {margin:0 0 12px}
-.panel p {color:var(--muted);font-size:13px}
-
-/* DASHBOARD */
-
-.metrics {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.metric {padding:23px}
-
-.metric small {
-  color:var(--muted);
-  font-size:11px;
-}
-
-.metric strong {
-  display:block;
-  font-size:34px;
-  letter-spacing:-1px;
-  line-height:1.4;
-}
-
-.metric span {
-  color:var(--accent);
-  font-size:11px;
-  font-weight:650;
-}
-
-.domain-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:16px;
-}
-
-.domain {
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:21px;
-}
-
-.domain b {font-size:14px}
-.domain p {font-size:12px;color:var(--muted);margin-bottom:0}
-
-/* FEATURED RESEARCH */
-
-.featured {
-  display:grid;
-  grid-template-columns:1.3fr .9fr;
-  gap:20px;
-}
-
-.featured h3 {
-  font-size:27px;
-  line-height:1.3;
-  margin:12px 0;
-}
-
-.tag-list {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:18px 0;
-}
-
-.tag {
-  display:inline-block;
-  font-size:10px;
-  font-weight:650;
-  color:var(--accent);
-  background:var(--accent-soft);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:5px 9px;
-}
-
-.fact {
-  border-bottom:1px solid var(--border);
-  padding:12px 0;
-}
-
-.fact:last-child {border:0}
-.fact strong {display:block;font-size:13px}
-.fact small {font-size:11px;color:var(--muted)}
-
-/* REAL RESEARCH METRICS */
-
-.research-metrics {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-bottom:20px;
-}
-
-.research-metric {
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:var(--surface);
-  padding:20px;
-}
-
-.research-metric small {
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.research-metric strong {
-  display:block;
-  font-size:28px;
-  line-height:1.4;
-  letter-spacing:-.7px;
-}
-
-.research-metric span {
-  display:block;
-  color:var(--accent);
-  font-size:10px;
-}
-
-.analytics-grid {
-  display:grid;
-  grid-template-columns:1.4fr .8fr;
-  gap:18px;
-}
-
-.chart-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-
-.chart-header h3 {margin:0}
-
-.chart-controls {
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
-
-.chart-controls button,.filter-btn {
-  background:var(--soft);
-  border:1px solid var(--border);
-  color:var(--muted);
-  border-radius:7px;
-  padding:8px 12px;
-  font-size:11px;
-  font-weight:650;
-}
-
-.chart-controls button.active,
-.filter-btn.active {
-  color:var(--accent);
-  background:var(--accent-soft);
-  border-color:var(--accent);
-}
-
-.chart-frame svg {
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-.chart-caption {
-  font-size:11px!important;
-  color:var(--muted);
-  margin:12px 0 0;
-}
-
-.legend {
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  font-size:11px;
-  color:var(--muted);
-}
-
-.legend span {
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-
-.legend i {
-  width:10px;
-  height:10px;
-  border-radius:3px;
-  display:inline-block;
-}
-
-.legend .historical {background:var(--accent)}
-.legend .student {background:var(--accent2)}
-
-.interpretation {
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:18px;
-  margin-top:15px;
-}
-
-.interpretation h4 {margin:0 0 7px;font-size:13px}
-.interpretation p {margin:0;font-size:12px}
-
-.disclosure {
-  background:var(--accent-soft);
-  border:1px solid var(--border);
-  border-radius:9px;
-  padding:15px 18px;
-  color:var(--muted);
-  font-size:12px;
-  margin-top:18px;
-}
-
-.risk-table {
-  width:100%;
-  border-collapse:collapse;
-  font-size:12px;
-}
-
-.risk-table th,.risk-table td {
-  padding:12px 8px;
-  text-align:left;
-  border-bottom:1px solid var(--border);
-}
-
-.risk-table th {
-  font-size:11px;
-  color:var(--muted);
-}
-
-.risk-table td:not(:first-child),
-.risk-table th:not(:first-child) {
-  text-align:right;
-  font-variant-numeric:tabular-nums;
-}
-
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{padding:12px 7px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--muted);font-size:11px}
+td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+.insight{margin-top:15px;padding:16px;border:1px solid var(--line);background:var(--soft);border-radius:10px}
+.insight b{font-size:12px}
+.insight p{font-size:12px;margin:5px 0 0}
+.method-chips{display:flex;gap:7px;flex-wrap:wrap;margin:17px 0}
 /* PROJECTS */
-
-.filters {
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-bottom:20px;
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.project{padding:25px;display:flex;flex-direction:column;gap:13px;transition:transform .2s}
+.project:hover{transform:translateY(-3px)}
+.project-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.project-num{color:var(--blue);font-size:10px;font-weight:850}
+.project h3{font-size:19px;line-height:1.4;margin:0}
+.project p{color:var(--muted);font-size:12px;margin:0}
+.project .tag-list{margin:0}
+.project-actions{
+ margin-top:auto;border-top:1px solid var(--line);padding-top:14px;
+ display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap
 }
-
-.project-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:17px;
+.repo-link{color:var(--blue);font-size:12px;font-weight:750}
+.details-btn{background:var(--soft);color:var(--text);border:1px solid var(--line);border-radius:7px;padding:8px 11px;font-size:11px}
+.case-study{border-top:1px solid var(--line);padding-top:12px}
+.case-study h4{font-size:12px;margin:13px 0 4px}
+.skill-grid,.method-grid,.about-grid,.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.skill-row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:11px 0;font-size:12px}
+.skill-row span:last-child{color:var(--muted);text-align:right}
+.method-item{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:0 18px}
+.method-item summary{cursor:pointer;font-weight:700;font-size:13px;padding:16px 0}
+.method-item p{font-size:12px;color:var(--muted);margin:0 0 17px}
+.contact-links{display:grid;gap:10px}
+.contact-link{
+ display:block;border:1px solid var(--line);background:var(--panel);
+ border-radius:9px;padding:13px 15px;font-size:12px;font-weight:750;
+ color:var(--blue);overflow-wrap:anywhere
 }
-
-.project {
-  padding:27px;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  transition:transform .2s;
+.footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.reveal{opacity:1;transform:none}
+@media(prefers-reduced-motion:no-preference){
+ .js-motion .reveal{
+  opacity:0;transform:translateY(13px);
+  transition:opacity .5s,transform .5s
+ }
+ .js-motion .reveal.visible{opacity:1;transform:none}
 }
-
-.project:hover {transform:translateY(-3px)}
-
-.project-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
+@media(max-width:960px){
+ .links{gap:11px}
+ .hero-grid{gap:25px}
+ .research-metrics,.metrics{grid-template-columns:repeat(2,1fr)}
+ .featured{grid-template-columns:1fr}
 }
-
-.project-number {
-  font-size:11px;
-  font-weight:800;
-  color:var(--accent);
+@media(max-width:760px){
+ .nav{min-height:67px}
+ #menuToggle{display:block}
+ .links{
+  display:none;position:absolute;top:67px;left:0;right:0;
+  background:var(--bg);border-bottom:1px solid var(--line);
+  padding:20px 24px;flex-direction:column;align-items:stretch;gap:14px
+ }
+ .links.open{display:flex}
+ .hero{padding:50px 0}
+ .hero-grid,.analytics-grid,.project-grid,.skill-grid,
+ .method-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+ .domain-grid{grid-template-columns:1fr}
+ .section{padding:54px 0}
 }
-
-.project h3 {
-  font-size:20px;
-  line-height:1.35;
-  margin:0;
+@media(max-width:420px){
+ .container{padding:0 17px}
+ .metric,.research-metric{padding:15px}
+ .metric strong{font-size:27px}
+ .panel,.project{padding:19px}
+ h1{letter-spacing:-1.3px}
+ .research-metrics,.metrics{gap:8px}
 }
-
-.project p {
-  font-size:13px;
-  color:var(--muted);
-  margin:0;
-}
-
-.project .tag-list {margin:0}
-
-.project-actions {
-  margin-top:auto;
-  padding-top:16px;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.project-link {
-  font-size:12px;
-  font-weight:750;
-  color:var(--accent);
-}
-
-.details-btn {
-  border:1px solid var(--border);
-  background:var(--soft);
-  color:var(--text);
-  border-radius:7px;
-  padding:8px 11px;
-  font-size:12px;
-}
-
-.case-study {
-  border-top:1px solid var(--border);
-  padding-top:15px;
-}
-
-.case-study h4 {font-size:12px;margin:14px 0 4px}
-.case-study p {font-size:12px}
-
-/* SKILLS */
-
-.skills-grid,.method-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-}
-
-.skill-row {
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  border-top:1px solid var(--border);
-  padding:12px 0;
-  font-size:12px;
-}
-
-.skill-row span:first-child {font-weight:650}
-.skill-row span:last-child {color:var(--muted);text-align:right}
-
-/* METHODS */
-
-.method-item {
-  border:1px solid var(--border);
-  background:var(--surface);
-  border-radius:10px;
-  padding:0 19px;
-}
-
-.method-item summary {
-  padding:17px 0;
-  cursor:pointer;
-  font-weight:700;
-  font-size:13px;
-}
-
-.method-item p {
-  color:var(--muted);
-  font-size:12px;
-  margin:0 0 18px;
-}
-
-/* ABOUT */
-
-.about-grid {
-  display:grid;
-  grid-template-columns:1.4fr .8fr;
-  gap:17px;
-}
-
-.about-grid p {font-size:14px;color:var(--muted)}
-
-.about-highlight {
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:25px;
-}
-
-.about-highlight h3 {margin-top:0}
-
-/* CONTACT */
-
-.contact-box {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center;
-}
-
-.contact-box h2 {font-size:30px;margin:0 0 10px}
-.contact-box p {font-size:13px;color:var(--muted)}
-
-.contact-links {display:grid;gap:10px}
-
-.contact-link {
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:9px;
-  padding:13px 16px;
-  font-size:12px;
-  font-weight:700;
-  color:var(--accent);
-  overflow-wrap:anywhere;
-}
-
-.contact-link:hover {border-color:var(--accent)}
-
-.footer {
-  padding:25px 0;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:11px;
-}
-
-.footer-inner {
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-/* ANIMATIONS */
-
-.reveal {opacity:1;transform:none}
-
-@media(prefers-reduced-motion:no-preference) {
-  .js-motion .reveal {
-    opacity:0;
-    transform:translateY(15px);
-    transition:opacity .55s,transform .55s;
-  }
-
-  .js-motion .reveal.visible {
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* RESPONSIVE */
-
-@media(max-width:950px) {
-  .navlinks {gap:12px}
-  .hero-grid {gap:25px}
-  .featured {grid-template-columns:1fr}
-  .metrics,.research-metrics {grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:760px) {
-  .navbar {min-height:67px}
-  .menu-btn {display:block}
-
-  .navlinks {
-    display:none;
-    position:absolute;
-    top:67px;
-    left:0;
-    right:0;
-    background:var(--bg);
-    border-bottom:1px solid var(--border);
-    padding:20px 24px;
-    flex-direction:column;
-    align-items:stretch;
-    gap:15px;
-  }
-
-  .navlinks.open {display:flex}
-
-  .hero {padding:50px 0}
-
-  .hero-grid,.analytics-grid,.project-grid,
-  .skills-grid,.method-grid,.about-grid,
-  .contact-box {
-    grid-template-columns:1fr;
-  }
-
-  .domain-grid {grid-template-columns:1fr}
-  .section {padding:55px 0}
-}
-
-@media(max-width:420px) {
-  .container {padding:0 17px}
-  .metrics,.research-metrics {gap:9px}
-  .metric,.research-metric {padding:16px}
-  .metric strong,.research-metric strong {font-size:26px}
-  .hero h1 {letter-spacing:-1.5px}
-  .profile-card,.panel,.project {padding:20px}
-}
-
-@media(prefers-reduced-motion:reduce) {
-  html {scroll-behavior:auto}
-  *,*::before,*::after {
-    animation-duration:.01ms!important;
-    transition-duration:.01ms!important;
-  }
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{transition:none!important;animation:none!important}
 }
 </style>
 </head>
 
 <body>
-
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- NAVIGATION -->
-
-<header class="header">
-<div class="container navbar">
-
-<a href="#home" class="logo">
-YASH<span>.</span>HINGORANI
-</a>
-
-<nav class="navlinks" id="navlinks" aria-label="Main navigation">
+<header>
+<div class="container nav">
+<a href="#home" class="brand">YASH<span>.</span>HINGORANI</a>
+<nav class="links" id="navlinks" aria-label="Main navigation">
 <a href="#overview">Overview</a>
 <a href="#research">Research</a>
 <a href="#analytics">Analytics</a>
@@ -806,1586 +266,775 @@ YASH<span>.</span>HINGORANI
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
-
 <div class="nav-actions">
-<button class="icon-btn" id="themeToggle"
- type="button" aria-label="Switch to dark mode">☾</button>
-
-<button class="icon-btn menu-btn" id="menuToggle"
- type="button" aria-label="Open navigation"
- aria-controls="navlinks" aria-expanded="false">☰</button>
+<button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark mode">☾</button>
+<button class="icon-btn" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navlinks" aria-expanded="false">☰</button>
 </div>
-
 </div>
 </header>
 
 <main id="main">
 
 <!-- HERO -->
-
 <section class="hero" id="home">
 <div class="container hero-grid">
-
 <div class="reveal">
-<div class="eyebrow">
-FINANCIAL RISK MANAGEMENT / QUANTITATIVE RESEARCH
-</div>
-
-<h1>
-Understanding risk.<br>
-<span class="accent">Through data.</span>
-</h1>
-
-<p>
-I'm Yash Hingorani, a Master's student in
-Financial Risk Management at Politecnico di Milano.
-My research explores credit risk, financial markets,
-operational risk and econometric modelling through
-quantitative and data-driven approaches.
-</p>
-
-<div class="hero-actions">
-
-<a class="button primary" href="#projects">
-Explore Research ↗
-</a>
-
-<a class="button"
- href="https://www.linkedin.com/in/yashhingorani"
- target="_blank" rel="noopener noreferrer">
-LinkedIn ↗
-</a>
-
-<a class="button hidden" id="heroCV"
- href="Yash_Hingorani_CV.pdf"
- download="Yash_Hingorani_CV.pdf">
-Download CV ↓
-</a>
-
+<div class="eyebrow">Financial Risk Management / Quantitative Research</div>
+<h1>Understanding risk.<br><span>Through data.</span></h1>
+<p>I'm Yash Hingorani, a Master's student in Financial Risk Management at Politecnico di Milano. My research explores credit risk, financial markets, operational risk and econometric modelling through quantitative and data-driven approaches.</p>
+<div class="actions">
+<a class="btn primary" href="#analytics">Explore Analytics ↗</a>
+<a class="btn" href="#projects">Research Projects</a>
+<a class="btn" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+<a class="btn hidden" id="heroCV" href="Yash_Hingorani_CV.pdf" download>Download CV ↓</a>
 </div>
 </div>
-
-<aside class="profile-card reveal">
-
-<div class="eyebrow">RESEARCH PROFILE</div>
+<aside class="panel profile reveal">
+<div class="eyebrow">Research Profile</div>
 <h3>Yash Hingorani</h3>
-
-<div class="profile-row">
-<small>Education</small>
-<strong>Master's · Financial Risk Management</strong>
-</div>
-
-<div class="profile-row">
-<small>Institution</small>
-<strong>Politecnico di Milano</strong>
-</div>
-
-<div class="profile-row">
-<small>Research interests</small>
-<strong>Quantitative Risk · Econometrics · FinTech</strong>
-</div>
-
-<div class="profile-row">
-<small>Research tools</small>
-<strong>Python · Excel · Gretl</strong>
-</div>
-
-<div class="profile-row">
-<small>Research portfolio</small>
-<strong>05 GitHub project repositories</strong>
-</div>
-
+<div class="fact"><small>Education</small><strong>Master's · Financial Risk Management</strong></div>
+<div class="fact"><small>Institution</small><strong>Politecnico di Milano</strong></div>
+<div class="fact"><small>Research interests</small><strong>Quantitative Risk · Econometrics · FinTech</strong></div>
+<div class="fact"><small>Research tools</small><strong>Python · Excel · Gretl · MATLAB</strong></div>
+<div class="fact"><small>Research portfolio</small><strong>Five GitHub repositories</strong></div>
 </aside>
-
 </div>
 </section>
 
-<!-- EXECUTIVE DASHBOARD -->
-
+<!-- OVERVIEW -->
 <section class="section" id="overview">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">01 / RESEARCH OVERVIEW</div>
+<div class="eyebrow">01 / Executive Overview</div>
 <h2>Research at a glance</h2>
-<p>
-A structured overview of my financial risk
-management and quantitative finance research.
-</p>
+<p>Five applied research projects covering financial risk measurement, econometric modelling and portfolio analytics.</p>
 </div>
-
 <div class="metrics">
-
-<div class="metric reveal">
-<small>Featured projects</small>
-<strong class="counter" data-target="5">5</strong>
-<span>Research repositories</span>
+<div class="metric reveal"><small>Research projects</small><strong class="counter" data-target="5">5</strong><span>GitHub repositories</span></div>
+<div class="metric reveal"><small>Core risk domains</small><strong class="counter" data-target="3">3</strong><span>Credit / Market / Operational</span></div>
+<div class="metric reveal"><small>Research categories</small><strong class="counter" data-target="5">5</strong><span>Distinct study areas</span></div>
+<div class="metric reveal"><small>Countries analysed</small><strong class="counter" data-target="50">50</strong><span>Sovereign bond study</span></div>
 </div>
-
-<div class="metric reveal">
-<small>Core risk domains</small>
-<strong class="counter" data-target="3">3</strong>
-<span>Credit / Market / Operational</span>
-</div>
-
-<div class="metric reveal">
-<small>Research tool families</small>
-<strong class="counter" data-target="3">3</strong>
-<span>Python / Excel / Gretl</span>
-</div>
-
-<div class="metric reveal">
-<small>Research categories</small>
-<strong class="counter" data-target="5">5</strong>
-<span>Distinct project areas</span>
-</div>
-
-</div>
-
 <div class="domain-grid">
-
-<div class="domain reveal">
-<b>01 / Credit Risk</b>
-<p>
-Probability of Default, logistic regression,
-borrower segmentation and risk ratings.
-</p>
+<div class="domain reveal"><b>Credit Risk</b><p>Probability of Default, borrower classification and Excel-based modelling.</p></div>
+<div class="domain reveal"><b>Market Risk</b><p>Value at Risk, Expected Shortfall, drawdown and portfolio evaluation.</p></div>
+<div class="domain reveal"><b>Operational Risk</b><p>Loss distributions, extreme events, simulation and tail-capital estimation.</p></div>
 </div>
-
-<div class="domain reveal">
-<b>02 / Market Risk</b>
-<p>
-Value at Risk, Expected Shortfall,
-drawdown and portfolio risk measurement.
-</p>
-</div>
-
-<div class="domain reveal">
-<b>03 / Operational Risk</b>
-<p>
-Loss distributions, Extreme Value Theory
-and Monte Carlo capital estimation.
-</p>
-</div>
-
-</div>
-
 </div>
 </section>
 
 <!-- FEATURED RESEARCH -->
-
 <section class="section alt" id="research">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">02 / RESEARCH SPOTLIGHT</div>
+<div class="eyebrow">02 / Research Spotlight</div>
 <h2>Featured quantitative research</h2>
-<p>
-An applied financial time series study combining
-market risk measurement and econometric modelling.
-</p>
+<p>Financial time series risk analysis of MercadoLibre (MELI), January 2022 to January 2026.</p>
 </div>
-
 <div class="featured">
-
 <div class="panel reveal">
-
-<div class="eyebrow">
-FINANCIAL TIME SERIES / MARKET RISK
-</div>
-
-<h3>
-Financial Time Series Risk &
-Trading Strategy Analysis
-</h3>
-
-<p>
-A study of MercadoLibre (MELI) stock returns
-covering January 2022 to January 2026.
-The research combines historical and Student-t
-Value at Risk, Expected Shortfall, ARMA and
-GARCH modelling, and MACD strategy analysis.
-</p>
-
+<div class="eyebrow">Financial Time Series / Market Risk</div>
+<h3>Financial Time Series Risk &amp; Trading Strategy Analysis</h3>
+<p>The study combines historical and Student-t Value at Risk, Expected Shortfall, ARMA and GARCH modelling, and MACD trading strategy analysis.</p>
 <div class="tag-list">
-<span class="tag">Historical VaR</span>
-<span class="tag">Student-t VaR</span>
-<span class="tag">Expected Shortfall</span>
-<span class="tag">ARMA</span>
-<span class="tag">GARCH</span>
-<span class="tag">MACD</span>
+<span class="tag">Historical VaR</span><span class="tag">Student-t</span><span class="tag">Expected Shortfall</span><span class="tag">ARMA</span><span class="tag">GARCH</span><span class="tag">MACD</span>
 </div>
-
-<a class="button primary"
- href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
- target="_blank" rel="noopener noreferrer">
-Read Research on GitHub ↗
-</a>
-
+<a class="btn primary" href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis" target="_blank" rel="noopener noreferrer">View MELI Research ↗</a>
 </div>
-
 <div class="panel reveal">
-
-<h3>Research specifications</h3>
-
-<div class="fact">
-<strong>MercadoLibre (MELI)</strong>
-<small>Asset studied</small>
+<h3>Reported research snapshot</h3>
+<div class="fact"><strong>1,013 daily log returns</strong><small>Sample observations</small></div>
+<div class="fact"><strong>3.22%</strong><small>Daily volatility</small></div>
+<div class="fact"><strong>17.63%</strong><small>Historical 99.9% VaR loss magnitude</small></div>
+<div class="fact"><strong>19.93%</strong><small>Student-t 99.9% VaR loss magnitude</small></div>
+<div class="fact"><strong>Python · Gretl · Excel</strong><small>Research tools</small></div>
 </div>
-
-<div class="fact">
-<strong>January 2022 – January 2026</strong>
-<small>Research period</small>
 </div>
-
-<div class="fact">
-<strong>1,013 daily log returns</strong>
-<small>Corrected Python research output</small>
-</div>
-
-<div class="fact">
-<strong>VaR / Expected Shortfall</strong>
-<small>Downside risk measurement</small>
-</div>
-
-<div class="fact">
-<strong>ARMA / GARCH / MACD</strong>
-<small>Econometrics and strategy analysis</small>
-</div>
-
-<div class="fact">
-<strong>Python / Gretl / Excel</strong>
-<small>Research tools</small>
-</div>
-
-</div>
-
-</div>
-
 </div>
 </section>
 
-<!-- VERIFIED RESEARCH ANALYTICS -->
-
+<!-- ALL FIVE ANALYTICS -->
 <section class="section" id="analytics">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">03 / EMPIRICAL RISK ANALYTICS</div>
-<h2>MercadoLibre risk analysis</h2>
-<p>
-Empirical results from the corrected Python
-implementation of the MELI financial time series
-research. Loss thresholds are shown as positive
-magnitudes for easier comparison.
-</p>
+<div class="eyebrow">03 / Research Analytics</div>
+<h2>Five-project research dashboard</h2>
+<p>Select a research project to explore reported statistics, analytical methods, model comparisons and supporting GitHub sources.</p>
 </div>
 
-<div class="research-metrics">
-
-<div class="research-metric reveal">
-<small>Daily observations</small>
-<strong class="counter" data-target="1013">1,013</strong>
-<span>Log returns</span>
+<div class="tabs" role="group" aria-label="Select research project">
+<button class="tab active" type="button" data-analysis="m eli">MELI Time Series</button>
+<button class="tab" type="button" data-analysis="credit">Credit Risk</button>
+<button class="tab" type="button" data-analysis="market">Multi-Asset Risk</button>
+<button class="tab" type="button" data-analysis="operational">Operational Risk</button>
+<button class="tab" type="button" data-analysis="sovereign">Sovereign Bonds</button>
 </div>
 
-<div class="research-metric reveal">
-<small>Mean daily return</small>
-<strong>0.0437%</strong>
-<span>Reported sample estimate</span>
+<div id="analyticsContent" aria-live="polite">
+<h3 class="analytics-title">MercadoLibre Risk Analysis</h3>
+<p class="analytics-description">Loading research dashboard...</p>
 </div>
 
-<div class="research-metric reveal">
-<small>Daily volatility</small>
-<strong>3.22%</strong>
-<span>Reported sample estimate</span>
+<div class="note">
+<strong>Research transparency:</strong> All numerical results shown in this dashboard are taken from reported project information or previously identified corrected MELI Python outputs. Project scope figures are not investment performance. Where model outputs have not been verified, the dashboard provides a methodology overview rather than fabricated results. Academic modelling estimates are not regulatory capital determinations or forecasts.
 </div>
-
-<div class="research-metric reveal">
-<small>Student-t 99.9% ES</small>
-<strong>29.35%</strong>
-<span>Loss magnitude</span>
-</div>
-
-</div>
-
-<div class="analytics-grid">
-
-<!-- INTERACTIVE RISK CHART -->
-
-<div class="panel reveal">
-
-<div class="chart-header">
-
-<h3>Downside risk model comparison</h3>
-
-<div class="chart-controls">
-<button class="active" type="button"
- data-risk="both">Both</button>
-
-<button type="button"
- data-risk="var">VaR</button>
-
-<button type="button"
- data-risk="es">Expected Shortfall</button>
-</div>
-
-</div>
-
-<div class="legend">
-<span><i class="historical"></i>Historical</span>
-<span><i class="student"></i>Student-t</span>
-</div>
-
-<div class="chart-frame">
-<svg id="riskChart"
- viewBox="0 0 600 320"
- role="img"
- aria-label="MELI 99.9 percent VaR and Expected Shortfall comparison">
-</svg>
-</div>
-
-<p class="chart-caption">
-Reported corrected Python estimates.
-99.9% confidence level.
-Values are percentage loss magnitudes.
-</p>
-
-<div class="interpretation">
-<h4>Research interpretation</h4>
-<p id="riskInterpretation" aria-live="polite">
-The fitted Student-t model produces larger
-VaR and Expected Shortfall estimates than
-the historical method, reflecting greater
-modelled exposure to extreme downside outcomes.
-</p>
-</div>
-
-</div>
-
-<!-- RISK RESULTS TABLE -->
-
-<div class="panel reveal">
-
-<h3>Empirical risk estimates</h3>
-
-<div style="overflow-x:auto">
-
-<table class="risk-table">
-
-<thead>
-<tr>
-<th>Method</th>
-<th>VaR</th>
-<th>ES</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Historical</td>
-<td>17.63%</td>
-<td>18.09%</td>
-</tr>
-
-<tr>
-<td>Student-t</td>
-<td>19.93%</td>
-<td>29.35%</td>
-</tr>
-</tbody>
-
-</table>
-
-</div>
-
-<div class="fact">
-<strong>99.9% confidence level</strong>
-<small>Tail-risk estimation</small>
-</div>
-
-<div class="fact">
-<strong>Student-t VaR exceeds historical VaR</strong>
-<small>Difference: 2.30 percentage points</small>
-</div>
-
-<div class="fact">
-<strong>Student-t ES exceeds historical ES</strong>
-<small>Difference: 11.26 percentage points</small>
-</div>
-
-<div class="fact">
-<strong>Research source</strong>
-<small>Corrected Python implementation</small>
-</div>
-
-<a class="button small"
- style="margin-top:20px"
- href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
- target="_blank" rel="noopener noreferrer">
-View Source Research ↗
-</a>
-
-</div>
-
-</div>
-
-<div class="disclosure">
-<strong>Research transparency:</strong>
-These figures are the corrected Python estimates
-previously identified in the MELI research repository,
-rather than the differing Student-t calculations
-in the original academic report.
-They are historical/model-based estimates, not
-forecasts or guaranteed maximum losses.
-The chart uses these reported summary statistics,
-not an invented daily price or volatility series.
-</div>
-
 </div>
 </section>
 
-<!-- PROJECT LIBRARY -->
-
+<!-- PROJECTS -->
 <section class="section alt" id="projects">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">04 / RESEARCH LIBRARY</div>
+<div class="eyebrow">04 / Research Library</div>
 <h2>Selected research projects</h2>
-<p>
-Five applied studies across financial risk management
-and econometrics. Filter by research area or expand
-a project to examine its methodology and scope.
-</p>
+<p>Filter the five repositories and expand any project to explore its research question, methodology, source materials and limitations.</p>
 </div>
-
-<div class="filters" aria-label="Filter research projects">
-
-<button class="filter-btn active" type="button" data-filter="all">
-All Projects
-</button>
-
-<button class="filter-btn" type="button" data-filter="credit">
-Credit Risk
-</button>
-
-<button class="filter-btn" type="button" data-filter="market">
-Market Risk
-</button>
-
-<button class="filter-btn" type="button" data-filter="operational">
-Operational Risk
-</button>
-
-<button class="filter-btn" type="button" data-filter="fixed">
-Fixed Income
-</button>
-
-<button class="filter-btn" type="button" data-filter="timeseries">
-Time Series
-</button>
-
+<div class="filters" aria-label="Filter projects">
+<button class="filter-btn active" type="button" data-filter="all">All Projects</button>
+<button class="filter-btn" type="button" data-filter="credit">Credit Risk</button>
+<button class="filter-btn" type="button" data-filter="market">Market Risk</button>
+<button class="filter-btn" type="button" data-filter="operational">Operational Risk</button>
+<button class="filter-btn" type="button" data-filter="fixed">Fixed Income</button>
+<button class="filter-btn" type="button" data-filter="timeseries">Time Series</button>
 </div>
-
-<p id="filterStatus" class="muted"
- role="status" aria-live="polite" style="font-size:12px">
-Showing 5 projects
-</p>
-
-<div class="project-grid">
-
-<!-- PROJECT 1 -->
-
-<article class="project reveal" data-category="credit">
-
-<div class="project-top">
-<span class="project-number">RESEARCH 01</span>
-<span class="tag">CREDIT RISK</span>
-</div>
-
-<h3>Credit Risk Modelling</h3>
-
-<p>
-Probability of Default estimation using logistic
-regression, borrower segmentation and risk ratings.
-</p>
-
-<div class="tag-list">
-<span class="tag">Logistic Regression</span>
-<span class="tag">PD</span>
-<span class="tag">Segmentation</span>
-</div>
-
-<div class="case-study hidden" id="case1">
-
-<h4>Research question</h4>
-<p>
-How can borrower characteristics be used to model
-default probability and support risk classification?
-</p>
-
-<h4>Methodology</h4>
-<p>
-Logistic regression, borrower segmentation and
-risk rating analysis.
-</p>
-
-<h4>Research scope</h4>
-<p>
-Borrower-level credit risk modelling.
-The repository contains the project materials.
-</p>
-
-<h4>Limitations</h4>
-<p>
-Model calibration, class imbalance, sample
-representativeness and out-of-sample validation
-are important considerations.
-</p>
-
-</div>
-
-<div class="project-actions">
-<button class="details-btn" type="button"
- data-target="case1" aria-controls="case1"
- aria-expanded="false">View Case Study +</button>
-
-<a class="project-link"
- href="https://github.com/YASHHIINGORANI67/credit-risk-modelling"
- target="_blank" rel="noopener noreferrer">
-GitHub Repository ↗
-</a>
-</div>
-
-</article>
-
-<!-- PROJECT 2 -->
-
-<article class="project reveal" data-category="market">
-
-<div class="project-top">
-<span class="project-number">RESEARCH 02</span>
-<span class="tag">MARKET RISK</span>
-</div>
-
-<h3>Multi-Asset Market Risk Analysis</h3>
-
-<p>
-Portfolio risk measurement across equities,
-bonds and absolute return strategies using
-tail-risk and drawdown measures.
-</p>
-
-<div class="tag-list">
-<span class="tag">VaR</span>
-<span class="tag">Expected Shortfall</span>
-<span class="tag">Drawdown</span>
-</div>
-
-<div class="case-study hidden" id="case2">
-
-<h4>Research question</h4>
-<p>
-How do asset classes and strategies compare
-in downside risk and risk-adjusted performance?
-</p>
-
-<h4>Methodology</h4>
-<p>
-Value at Risk, Expected Shortfall, drawdown
-analysis and risk-adjusted performance measures.
-</p>
-
-<h4>Research scope</h4>
-<p>
-Equities, bonds and absolute return strategies.
-See the repository for empirical comparisons.
-</p>
-
-<h4>Limitations</h4>
-<p>
-Estimates depend on sample periods,
-confidence levels and changing correlations.
-</p>
-
-</div>
-
-<div class="project-actions">
-<button class="details-btn" type="button"
- data-target="case2" aria-controls="case2"
- aria-expanded="false">View Case Study +</button>
-
-<a class="project-link"
- href="https://github.com/YASHHIINGORANI67/multi-asset-market-risk-analysis"
- target="_blank" rel="noopener noreferrer">
-GitHub Repository ↗
-</a>
-</div>
-
-</article>
-
-<!-- PROJECT 3 -->
-
-<article class="project reveal" data-category="operational">
-
-<div class="project-top">
-<span class="project-number">RESEARCH 03</span>
-<span class="tag">OPERATIONAL RISK</span>
-</div>
-
-<h3>Operational Risk Capital Modelling</h3>
-
-<p>
-Operational loss modelling through the
-Loss Distribution Approach, Extreme Value
-Theory and Monte Carlo simulation.
-</p>
-
-<div class="tag-list">
-<span class="tag">LDA</span>
-<span class="tag">EVT</span>
-<span class="tag">Monte Carlo</span>
-</div>
-
-<div class="case-study hidden" id="case3">
-
-<h4>Research question</h4>
-<p>
-How can operational loss distributions
-and extreme events inform capital risk estimation?
-</p>
-
-<h4>Methodology</h4>
-<p>
-Loss Distribution Approach, Extreme Value
-Theory and Monte Carlo simulation.
-</p>
-
-<h4>Research scope</h4>
-<p>
-Operational loss frequency, severity
-and aggregate loss modelling.
-</p>
-
-<h4>Limitations</h4>
-<p>
-Rare-event estimation is sensitive to data
-availability, distribution selection
-and tail assumptions.
-</p>
-
-</div>
-
-<div class="project-actions">
-<button class="details-btn" type="button"
- data-target="case3" aria-controls="case3"
- aria-expanded="false">View Case Study +</button>
-
-<a class="project-link"
- href="https://github.com/YASHHIINGORANI67/operational-risk-capital-modelling"
- target="_blank" rel="noopener noreferrer">
-GitHub Repository ↗
-</a>
-</div>
-
-</article>
-
-<!-- PROJECT 4 -->
-
-<article class="project reveal" data-category="fixed">
-
-<div class="project-top">
-<span class="project-number">RESEARCH 04</span>
-<span class="tag">FIXED INCOME</span>
-</div>
-
-<h3>Sovereign Bond Yield Analysis</h3>
-
-<p>
-Cross-sectional econometric research into
-10-year sovereign bond yields across 50 countries.
-</p>
-
-<div class="tag-list">
-<span class="tag">OLS</span>
-<span class="tag">Bond Yields</span>
-<span class="tag">Econometrics</span>
-</div>
-
-<div class="case-study hidden" id="case4">
-
-<h4>Research question</h4>
-<p>
-Which macroeconomic factors are associated
-with differences in sovereign bond yields?
-</p>
-
-<h4>Methodology</h4>
-<p>
-Python-based OLS regression, explanatory
-variables and regression diagnostics.
-</p>
-
-<h4>Research scope</h4>
-<p>
-10-year sovereign government bond yields
-across 50 countries.
-</p>
-
-<h4>Limitations</h4>
-<p>
-Cross-sectional associations do not
-establish causation. Omitted variables
-and model specification may affect estimates.
-</p>
-
-</div>
-
-<div class="project-actions">
-<button class="details-btn" type="button"
- data-target="case4" aria-controls="case4"
- aria-expanded="false">View Case Study +</button>
-
-<a class="project-link"
- href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis"
- target="_blank" rel="noopener noreferrer">
-GitHub Repository ↗
-</a>
-</div>
-
-</article>
-
-<!-- PROJECT 5 -->
-
-<article class="project reveal" data-category="timeseries">
-
-<div class="project-top">
-<span class="project-number">RESEARCH 05</span>
-<span class="tag">TIME SERIES</span>
-</div>
-
-<h3>Financial Time Series Risk & Trading Strategy Analysis</h3>
-
-<p>
-MercadoLibre (MELI) return research combining
-historical and Student-t tail-risk measures,
-ARMA, GARCH and MACD analysis.
-</p>
-
-<div class="tag-list">
-<span class="tag">ARMA</span>
-<span class="tag">GARCH</span>
-<span class="tag">MACD</span>
-<span class="tag">Student-t</span>
-</div>
-
-<div class="case-study hidden" id="case5">
-
-<h4>Research question</h4>
-<p>
-How can financial time series models,
-downside risk measures and trading signals
-be analysed together?
-</p>
-
-<h4>Methodology</h4>
-<p>
-Historical and Student-t VaR, Expected
-Shortfall, ARMA, GARCH and MACD analysis.
-</p>
-
-<h4>Research scope</h4>
-<p>
-MercadoLibre (MELI) returns, January 2022
-to January 2026, using Python, Gretl and Excel.
-</p>
-
-<h4>Reported results</h4>
-<p>
-Corrected Python implementation:
-1,013 daily log returns, 3.22% daily
-volatility, historical 99.9% VaR loss
-magnitude of 17.63%, and Student-t
-99.9% VaR loss magnitude of 19.93%.
-</p>
-
-<h4>Limitations</h4>
-<p>
-Tail estimates depend on model assumptions
-and sample size. Trading strategy analysis
-should consider overfitting, transaction
-costs and out-of-sample validation.
-</p>
-
-</div>
-
-<div class="project-actions">
-<button class="details-btn" type="button"
- data-target="case5" aria-controls="case5"
- aria-expanded="false">View Case Study +</button>
-
-<a class="project-link"
- href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
- target="_blank" rel="noopener noreferrer">
-GitHub Repository ↗
-</a>
-</div>
-
-</article>
-
-</div>
+<p class="muted" id="filterStatus" role="status" aria-live="polite">Showing 5 projects</p>
+<div class="project-grid" id="projectGrid"></div>
 </div>
 </section>
 
-<!-- TECHNICAL SKILLS -->
-
+<!-- SKILLS -->
 <section class="section" id="skills">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">05 / TECHNICAL CAPABILITIES</div>
-<h2>Technical skills & research methods</h2>
-<p>
-Tools and analytical methods represented
-across my research portfolio.
-</p>
+<div class="eyebrow">05 / Technical Capabilities</div>
+<h2>Technical skills &amp; research methods</h2>
+<p>Tools and modelling techniques represented across the five research projects.</p>
 </div>
-
-<div class="skills-grid">
-
+<div class="skill-grid">
 <div class="panel reveal">
-<h3>Programming & analytical tools</h3>
-
-<div class="skill-row">
-<span>Python</span>
-<span>Data analysis / Modelling</span>
+<h3>Research tools</h3>
+<div class="skill-row"><span>Python</span><span>Econometrics / Financial analysis</span></div>
+<div class="skill-row"><span>Microsoft Excel</span><span>Portfolio / Credit modelling</span></div>
+<div class="skill-row"><span>Gretl</span><span>Financial time series</span></div>
+<div class="skill-row"><span>MATLAB</span><span>Operational risk simulation</span></div>
+<div class="skill-row"><span>Word / PDF</span><span>Research reporting</span></div>
 </div>
-
-<div class="skill-row">
-<span>Excel</span>
-<span>Financial analysis</span>
-</div>
-
-<div class="skill-row">
-<span>Gretl</span>
-<span>Econometrics</span>
-</div>
-
-<div class="skill-row">
-<span>pandas / NumPy</span>
-<span>Data processing</span>
-</div>
-
-<div class="skill-row">
-<span>SciPy / statsmodels</span>
-<span>Statistical modelling</span>
-</div>
-
-</div>
-
 <div class="panel reveal">
 <h3>Quantitative methods</h3>
-
-<div class="skill-row">
-<span>Value at Risk</span>
-<span>Market risk</span>
+<div class="skill-row"><span>VaR / Expected Shortfall</span><span>Tail risk</span></div>
+<div class="skill-row"><span>Logistic / OLS</span><span>Regression</span></div>
+<div class="skill-row"><span>ARMA / GARCH</span><span>Time series</span></div>
+<div class="skill-row"><span>EVT / Monte Carlo</span><span>Extreme loss modelling</span></div>
+<div class="skill-row"><span>Sharpe / Sortino</span><span>Risk-adjusted performance</span></div>
 </div>
-
-<div class="skill-row">
-<span>Expected Shortfall</span>
-<span>Tail risk</span>
 </div>
-
-<div class="skill-row">
-<span>Logistic / OLS Regression</span>
-<span>Statistical estimation</span>
-</div>
-
-<div class="skill-row">
-<span>ARMA / GARCH</span>
-<span>Financial time series</span>
-</div>
-
-<div class="skill-row">
-<span>EVT / Monte Carlo</span>
-<span>Simulation / Tail modelling</span>
-</div>
-
-</div>
-
-</div>
-
 </div>
 </section>
 
-<!-- METHODOLOGY EXPLORER -->
-
+<!-- METHODS -->
 <section class="section alt" id="methods">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">06 / MODEL EXPLORER</div>
+<div class="eyebrow">06 / Model Explorer</div>
 <h2>Research methodology explorer</h2>
-<p>
-Expand each method to learn how it is
-used in financial risk analysis.
-</p>
+<p>Expand each concept for a concise explanation of its application.</p>
 </div>
-
 <div class="method-grid">
-
-<details class="method-item">
-<summary>Value at Risk (VaR)</summary>
-<p>
-VaR estimates a loss threshold for a specified
-confidence level and horizon. A one-day 99% VaR
-threshold is exceeded on approximately 1% of days
-under the assumed model.
-</p>
-</details>
-
-<details class="method-item">
-<summary>Expected Shortfall (ES)</summary>
-<p>
-Expected Shortfall estimates the average
-loss in the tail beyond the VaR threshold,
-subject to the chosen estimation method.
-</p>
-</details>
-
-<details class="method-item">
-<summary>ARMA Models</summary>
-<p>
-Autoregressive Moving Average models describe
-linear dependence in stationary time series
-using past observations and innovations.
-</p>
-</details>
-
-<details class="method-item">
-<summary>GARCH Models</summary>
-<p>
-GARCH models describe changing conditional
-variance, including volatility clustering
-in financial return series.
-</p>
-</details>
-
-<details class="method-item">
-<summary>Monte Carlo Simulation</summary>
-<p>
-Monte Carlo methods generate simulated
-outcomes from a specified probabilistic
-model to approximate distributions and
-risk measures.
-</p>
-</details>
-
-<details class="method-item">
-<summary>Extreme Value Theory</summary>
-<p>
-EVT provides statistical methods for
-modelling unusually large observations
-and extreme distribution tails.
-</p>
-</details>
-
-<details class="method-item">
-<summary>Logistic Regression</summary>
-<p>
-Logistic regression models the probability
-of a binary event, such as borrower default,
-as a function of explanatory variables.
-</p>
-</details>
-
-<details class="method-item">
-<summary>Ordinary Least Squares</summary>
-<p>
-OLS estimates linear regression coefficients
-by minimizing the sum of squared residuals.
-</p>
-</details>
-
-<details class="method-item">
-<summary>Maximum Drawdown</summary>
-<p>
-Maximum drawdown measures the largest
-observed peak-to-trough percentage decline
-in an asset or portfolio value series.
-</p>
-</details>
-
-<details class="method-item">
-<summary>MACD Strategy Analysis</summary>
-<p>
-Moving Average Convergence Divergence
-compares exponential moving averages
-to generate momentum-related signals.
-Backtests must consider transaction costs
-and overfitting.
-</p>
-</details>
-
+<details class="method-item"><summary>Value at Risk (VaR)</summary><p>A model-based loss threshold for a specified horizon and confidence level. A 99% one-day VaR corresponds to a 1% modelled probability of exceeding that threshold.</p></details>
+<details class="method-item"><summary>Expected Shortfall (ES)</summary><p>Measures the average loss in the tail beyond a specified VaR threshold, under the relevant estimation assumptions.</p></details>
+<details class="method-item"><summary>Probability of Default (PD)</summary><p>Estimates the probability that a borrower defaults over a specified time horizon, conditional on available information and model assumptions.</p></details>
+<details class="method-item"><summary>Logistic Regression</summary><p>Models the probability of a binary outcome, such as borrower default, using explanatory variables.</p></details>
+<details class="method-item"><summary>ARMA / GARCH</summary><p>ARMA models linear time-series dependence; GARCH describes changing conditional variance and volatility clustering.</p></details>
+<details class="method-item"><summary>Extreme Value Theory (EVT)</summary><p>Statistical methods for modelling extreme observations, including peaks-over-threshold and Generalized Pareto tail models.</p></details>
+<details class="method-item"><summary>Monte Carlo Simulation</summary><p>Generates repeated simulated outcomes under a specified model to estimate distributions, loss thresholds and risk statistics.</p></details>
+<details class="method-item"><summary>Ordinary Least Squares (OLS)</summary><p>Estimates linear regression coefficients by minimizing squared residuals. Diagnostic tests help evaluate model assumptions.</p></details>
+<details class="method-item"><summary>Maximum Drawdown</summary><p>The largest observed percentage decline from a previous peak to a subsequent trough in an asset or portfolio series.</p></details>
+<details class="method-item"><summary>Sharpe / Sortino Ratios</summary><p>Risk-adjusted return metrics. Sharpe uses total return variability, while Sortino focuses on downside deviation.</p></details>
+<details class="method-item"><summary>MACD</summary><p>A momentum indicator based on differences between exponential moving averages, sometimes evaluated in rule-based trading strategies.</p></details>
+<details class="method-item"><summary>Regression Diagnostics</summary><p>Tools such as Ramsey RESET, Breusch–Pagan and Jarque–Bera investigate specification, heteroskedasticity and residual normality.</p></details>
 </div>
-
 </div>
 </section>
 
 <!-- ABOUT -->
-
 <section class="section" id="about">
 <div class="container">
-
 <div class="section-head reveal">
-<div class="eyebrow">07 / BACKGROUND</div>
+<div class="eyebrow">07 / Background</div>
 <h2>About me</h2>
 </div>
-
 <div class="about-grid">
-
 <div class="panel reveal">
-
 <h3>Research-driven financial risk analysis</h3>
-
-<p>
-I am Yash Hingorani, a Master's student
-in Financial Risk Management at
-Politecnico di Milano.
-</p>
-
-<p>
-My interests lie at the intersection of
-financial risk, quantitative modelling,
-econometrics and financial technology.
-I focus on understanding financial problems
-through structured analysis, statistical
-reasoning and computational methods.
-</p>
-
-<p>
-My research portfolio covers credit risk
-modelling, multi-asset market risk,
-operational risk capital, sovereign bond
-yields and financial time series analysis.
-</p>
-
-<p>
-I use these projects to develop analytical
-capabilities and communicate technical
-financial concepts in a clear and
-reproducible way.
-</p>
-
+<p>I am Yash Hingorani, a Master's student in Financial Risk Management at Politecnico di Milano.</p>
+<p>My interests lie at the intersection of financial risk, quantitative modelling, econometrics and financial technology. I focus on understanding financial problems through structured analysis, statistical reasoning and practical computational methods.</p>
+<p>My portfolio covers credit risk modelling, multi-asset market risk, operational risk capital, sovereign bond yields and financial time series analysis.</p>
+<p>These projects support my development in financial analytics, model interpretation and research communication.</p>
 </div>
-
-<div class="about-highlight reveal">
-
-<h3>Areas of interest</h3>
-
-<div class="fact">
-<strong>Financial Risk Management</strong>
-<small>Credit, market and operational risk</small>
+<div class="panel reveal">
+<h3>Research interests</h3>
+<div class="fact"><strong>Financial Risk Management</strong><small>Credit, market and operational risk</small></div>
+<div class="fact"><strong>Quantitative Finance</strong><small>Risk modelling and statistical analysis</small></div>
+<div class="fact"><strong>Financial Econometrics</strong><small>Regression and time series</small></div>
+<div class="fact"><strong>FinTech &amp; Analytics</strong><small>Computational financial research</small></div>
 </div>
-
-<div class="fact">
-<strong>Quantitative Finance</strong>
-<small>Risk models and financial statistics</small>
 </div>
-
-<div class="fact">
-<strong>Financial Econometrics</strong>
-<small>Regression and time series analysis</small>
-</div>
-
-<div class="fact">
-<strong>FinTech & Analytics</strong>
-<small>Python-based financial research</small>
-</div>
-
-</div>
-
-</div>
-
 </div>
 </section>
 
 <!-- CONTACT -->
-
 <section class="section alt" id="contact">
 <div class="container">
-
-<div class="contact-box">
-
+<div class="contact-grid">
 <div class="reveal">
-
-<div class="eyebrow">08 / CONTACT</div>
+<div class="eyebrow">08 / Contact</div>
 <h2>Let's connect.</h2>
-
-<p>
-Interested in financial risk management,
-quantitative finance, data analytics and
-related professional opportunities.
-</p>
-
-<a class="button primary"
- href="mailto:Yash.hingorani@gsom.polimi.it">
-Send an Email ↗
-</a>
-
+<p class="muted">Interested in financial risk management, quantitative finance, data analytics and related professional opportunities.</p>
+<a class="btn primary" href="mailto:Yash.hingorani@gsom.polimi.it">Send an Email ↗</a>
 </div>
-
 <div class="contact-links reveal">
-
-<a class="contact-link"
- href="https://www.linkedin.com/in/yashhingorani"
- target="_blank" rel="noopener noreferrer">
-LinkedIn Profile ↗
-</a>
-
-<a class="contact-link"
- href="https://github.com/YASHHIINGORANI67"
- target="_blank" rel="noopener noreferrer">
-GitHub Profile ↗
-</a>
-
-<a class="contact-link"
- href="mailto:Yash.hingorani@gsom.polimi.it">
-Yash.hingorani@gsom.polimi.it ↗
-</a>
-
-<a class="contact-link hidden" id="contactCV"
- href="Yash_Hingorani_CV.pdf"
- download="Yash_Hingorani_CV.pdf">
-Download CV ↓
-</a>
-
+<a class="contact-link" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
+<a class="contact-link" href="https://github.com/YASHHIINGORANI67" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+<a class="contact-link" href="mailto:Yash.hingorani@gsom.polimi.it">Yash.hingorani@gsom.polimi.it ↗</a>
+<a class="contact-link hidden" id="contactCV" href="Yash_Hingorani_CV.pdf" download>Download CV ↓</a>
 </div>
-
 </div>
-
 </div>
 </section>
-
 </main>
-
-<!-- FOOTER -->
 
 <footer class="footer">
 <div class="container footer-inner">
-
 <span>© 2026 Yash Hingorani. All rights reserved.</span>
-
-<span>
-Financial Risk & Quantitative Research
-· Hosted on GitHub Pages
-</span>
-
+<span>Financial Risk &amp; Quantitative Research · GitHub Pages</span>
 </div>
 </footer>
 
 <script>
 "use strict";
 
-/* THEME SWITCH */
+/* LINKS */
+const base = "https://github.com/YASHHIINGORANI67/";
+const repo = slug => base + slug;
 
+/* THEME */
 const root = document.documentElement;
-const themeToggle = document.getElementById("themeToggle");
+const themeButton = document.getElementById("themeToggle");
 
-function setTheme(theme) {
-  root.setAttribute("data-theme", theme);
-
-  themeToggle.textContent = theme === "dark" ? "☀" : "☾";
-
-  themeToggle.setAttribute(
-    "aria-label",
-    theme === "dark"
-      ? "Switch to light mode"
-      : "Switch to dark mode"
-  );
-
-  const meta = document.querySelector(
-    'meta[name="theme-color"]'
-  );
-
-  if (meta) {
-    meta.content = theme === "dark"
-      ? "#0b1019"
-      : "#ffffff";
-  }
-
-  try {
-    localStorage.setItem("portfolio-theme", theme);
-  } catch (e) {}
+function applyTheme(theme){
+ root.setAttribute("data-theme",theme);
+ themeButton.textContent = theme==="dark" ? "☀" : "☾";
+ themeButton.setAttribute("aria-label",
+  theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+ const meta=document.querySelector('meta[name="theme-color"]');
+ if(meta)meta.content=theme==="dark"?"#0b1019":"#ffffff";
+ try{localStorage.setItem("risk-theme",theme)}catch(e){}
 }
-
-let savedTheme = "light";
-
-try {
-  savedTheme = localStorage.getItem("portfolio-theme") || "light";
-} catch (e) {}
-
-setTheme(savedTheme === "dark" ? "dark" : "light");
-
-themeToggle.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme");
-  setTheme(current === "dark" ? "light" : "dark");
+let initialTheme="light";
+try{initialTheme=localStorage.getItem("risk-theme")||"light"}catch(e){}
+applyTheme(initialTheme==="dark"?"dark":"light");
+themeButton.addEventListener("click",()=>{
+ applyTheme(root.getAttribute("data-theme")==="dark"?"light":"dark");
 });
 
-/* MOBILE MENU */
-
-const menuToggle = document.getElementById("menuToggle");
-const navlinks = document.getElementById("navlinks");
-
-menuToggle.addEventListener("click", () => {
-  const open = navlinks.classList.toggle("open");
-
-  menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute(
-    "aria-label",
-    open ? "Close navigation" : "Open navigation"
-  );
+/* MOBILE NAV */
+const menu=document.getElementById("menuToggle");
+const nav=document.getElementById("navlinks");
+menu.addEventListener("click",()=>{
+ const open=nav.classList.toggle("open");
+ menu.setAttribute("aria-expanded",String(open));
+ menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
 });
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+ nav.classList.remove("open");
+ menu.setAttribute("aria-expanded","false");
+ menu.setAttribute("aria-label","Open navigation");
+}));
 
-navlinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navlinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-  });
-});
-
-/* PROJECT FILTERS */
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project");
-const filterStatus = document.getElementById("filterStatus");
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    let visible = 0;
-
-    filterButtons.forEach(b => b.classList.remove("active"));
-    button.classList.add("active");
-
-    projectCards.forEach(card => {
-      const show =
-        filter === "all" ||
-        card.dataset.category === filter;
-
-      card.classList.toggle("hidden", !show);
-
-      if (show) visible++;
-    });
-
-    filterStatus.textContent =
-      "Showing " + visible +
-      (visible === 1 ? " project" : " projects");
-  });
-});
-
-/* EXPANDABLE CASE STUDIES */
-
-document.querySelectorAll(".details-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    const target = document.getElementById(
-      button.dataset.target
-    );
-
-    if (!target) return;
-
-    const opening = target.classList.contains("hidden");
-
-    target.classList.toggle("hidden");
-
-    button.setAttribute(
-      "aria-expanded",
-      String(opening)
-    );
-
-    button.textContent = opening
-      ? "Hide Case Study −"
-      : "View Case Study +";
-  });
-});
-
-/* VERIFIED MELI RISK RESULTS */
-
-/*
-  Source:
-  financial-time-series-risk-analysis
-  Corrected Python implementation.
-
-  Values below are positive percentage
-  loss magnitudes at 99.9% confidence.
-
-  Historical:
-    VaR 17.63%
-    ES  18.09%
-
-  Student-t:
-    VaR 19.93%
-    ES  29.35%
-*/
-
-const riskData = [
-  {
-    method:"Historical",
-    var:17.63,
-    es:18.09,
-    color:"var(--accent)"
-  },
-  {
-    method:"Student-t",
-    var:19.93,
-    es:29.35,
-    color:"var(--accent2)"
-  }
+/* PROJECT DEFINITIONS */
+const projects=[
+ {
+  id:"credit",category:"credit",title:"Credit Risk Modelling",
+  slug:"credit-risk-modelling",
+  description:"Excel-based credit risk assessment and Probability of Default modelling, supported by an academic report.",
+  tags:["Probability of Default","Credit Modelling","Excel"],
+  question:"How can borrower risk be assessed and represented through a structured credit model?",
+  method:"Excel-based quantitative credit analysis and Probability of Default concepts. The repository description also references borrower classification and logistic regression.",
+  findings:"The public README documents the model and supporting report but does not publish numerical performance estimates.",
+  limitations:"The model workbook and report should be consulted before quoting calibration, accuracy or discrimination metrics."
+ },
+ {
+  id:"market",category:"market",title:"Multi-Asset Market Risk Analysis",
+  slug:"multi-asset-market-risk-analysis",
+  description:"Risk and performance comparison across US equities, bonds and absolute-return strategies.",
+  tags:["VaR","Expected Shortfall","Sharpe","Sortino","Drawdown"],
+  question:"How do asset classes and investment strategies compare on downside risk and risk-adjusted performance?",
+  method:"Excel-based VaR, Expected Shortfall, volatility, maximum drawdown, Sharpe and Sortino analysis.",
+  findings:"Three asset categories are documented. Numerical return and risk estimates remain in the supporting workbooks and report.",
+  limitations:"Historical sample choice, risk horizons, portfolio construction and cross-asset comparability affect interpretation."
+ },
+ {
+  id:"operational",category:"operational",title:"Operational Risk Capital Modelling",
+  slug:"operational-risk-capital-modelling",
+  description:"MATLAB Loss Distribution Approach using extreme-loss modelling and Monte Carlo simulation.",
+  tags:["MATLAB","LDA","EVT","GPD","Monte Carlo"],
+  question:"How can loss frequency, severity and extreme events be combined to estimate annual aggregate operational risk?",
+  method:"Poisson event frequency, Peaks-over-Threshold, Generalized Pareto severity tail, spliced severity distribution and 100,000 Monte Carlo simulations.",
+  findings:"964 valid loss observations over 10 years. Expected annual loss €28.3M; simulated 99.9% VaR €1.323B; adjusted SLA VaR €1.280B.",
+  limitations:"Academic model estimates depend on the dataset, frequency/severity assumptions and simulation setup. They are not independently validated regulatory capital."
+ },
+ {
+  id:"sovereign",category:"fixed",title:"Sovereign Bond Yield Analysis",
+  slug:"sovereign-bond-yield-analysis",
+  description:"Python cross-sectional analysis of 10-year government bond yields across 50 countries.",
+  tags:["Python","OLS","Inflation","Credit Ratings","Diagnostics"],
+  question:"How are sovereign yields associated with credit ratings, inflation and government debt?",
+  method:"OLS regression with Ramsey RESET, Breusch–Pagan and Jarque–Bera diagnostics.",
+  findings:"The public README confirms a 50-country dataset and model specification. It does not state numerical regression coefficients or p-values.",
+  limitations:"Cross-sectional regression describes associations, not necessarily causal effects. Specification and residual assumptions require testing."
+ },
+ {
+  id:"timeseries",category:"timeseries",title:"Financial Time Series Risk & Trading Strategy Analysis",
+  slug:"financial-time-series-risk-analysis",
+  description:"MercadoLibre return risk research with VaR, ES, ARMA, GARCH and MACD analysis.",
+  tags:["MELI","Student-t","VaR","ES","ARMA","GARCH","MACD"],
+  question:"How can return dynamics, tail-risk estimates and technical trading signals be examined together?",
+  method:"Historical and fitted Student-t tail-risk estimation, ARMA/GARCH time-series modelling and MACD strategy analysis.",
+  findings:"Corrected Python results: 1,013 daily log returns, 3.22% daily volatility, historical 99.9% VaR 17.63% and Student-t 99.9% VaR 19.93% as loss magnitudes.",
+  limitations:"Tail-risk estimates are model-sensitive. The original report and corrected Python implementation differ in their Student-t calculations."
+ }
 ];
 
-const riskChart = document.getElementById("riskChart");
-const riskInterpretation = document.getElementById(
-  "riskInterpretation"
-);
+/* BUILD PROJECT CARDS */
+const grid=document.getElementById("projectGrid");
+const categoryLabels={
+ credit:"CREDIT RISK",market:"MARKET RISK",
+ operational:"OPERATIONAL RISK",fixed:"FIXED INCOME",
+ timeseries:"TIME SERIES"
+};
 
-function renderRiskChart(mode) {
-  const maxValue = 35;
-  const left = 85;
-  const top = 30;
-  const plotHeight = 215;
-  const baseY = top + plotHeight;
-  const barWidth = 60;
-
-  const scale = value =>
-    (value / maxValue) * plotHeight;
-
-  let svg = "";
-
-  /* GRID AND AXIS */
-
-  for (let tick=0;tick<=35;tick+=5) {
-    const y = baseY - scale(tick);
-
-    svg += `
-      <line x1="${left}" y1="${y}"
-            x2="570" y2="${y}"
-            stroke="var(--border)"
-            stroke-width="1"/>
-
-      <text x="${left-12}" y="${y+4}"
-            text-anchor="end"
-            font-size="11"
-            fill="var(--muted)">
-        ${tick}%
-      </text>
-    `;
-  }
-
-  const groups = [];
-
-  if (mode === "both" || mode === "var") {
-    groups.push({key:"var",label:"Value at Risk"});
-  }
-
-  if (mode === "both" || mode === "es") {
-    groups.push({key:"es",label:"Expected Shortfall"});
-  }
-
-  const groupCenters = groups.length === 1
-    ? [325]
-    : [205,445];
-
-  groups.forEach((group,index) => {
-    const center = groupCenters[index];
-
-    riskData.forEach((item,i) => {
-      const value = item[group.key];
-      const height = scale(value);
-
-      const x = center + (i===0 ? -70 : 10);
-      const y = baseY - height;
-
-      svg += `
-        <rect
-          x="${x}"
-          y="${y}"
-          width="${barWidth}"
-          height="${height}"
-          rx="5"
-          fill="${item.color}">
-          <title>
-            ${item.method} ${group.label}: ${value.toFixed(2)}%
-          </title>
-        </rect>
-
-        <text
-          x="${x+barWidth/2}"
-          y="${y-10}"
-          text-anchor="middle"
-          font-size="12"
-          font-weight="700"
-          fill="var(--text)">
-          ${value.toFixed(2)}%
-        </text>
-      `;
-    });
-
-    svg += `
-      <text x="${center}"
-            y="275"
-            text-anchor="middle"
-            font-size="12"
-            fill="var(--text)">
-        ${group.label}
-      </text>
-    `;
-  });
-
-  svg += `
-    <text x="325" y="309"
-          text-anchor="middle"
-          font-size="11"
-          fill="var(--muted)">
-      99.9% confidence · Loss magnitude (%)
-    </text>
-  `;
-
-  riskChart.innerHTML = svg;
-
-  if (mode === "var") {
-    riskInterpretation.textContent =
-      "At 99.9% confidence, the historical VaR loss " +
-      "magnitude is 17.63%, compared with 19.93% " +
-      "under the fitted Student-t model. " +
-      "The difference is 2.30 percentage points.";
-  } else if (mode === "es") {
-    riskInterpretation.textContent =
-      "At 99.9% confidence, historical Expected " +
-      "Shortfall has a loss magnitude of 18.09%, " +
-      "compared with 29.35% for the Student-t model. " +
-      "The difference is 11.26 percentage points.";
-  } else {
-    riskInterpretation.textContent =
-      "The fitted Student-t model produces larger " +
-      "VaR and Expected Shortfall estimates than " +
-      "the historical method, reflecting greater " +
-      "modelled exposure to extreme downside outcomes.";
-  }
-
-  riskChart.setAttribute(
-    "aria-label",
-    "MELI 99.9 percent risk comparison, " +
-    (mode === "both" ? "VaR and Expected Shortfall" :
-     mode === "var" ? "Value at Risk" : "Expected Shortfall")
-  );
-}
-
-renderRiskChart("both");
-
-document.querySelectorAll("[data-risk]").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll("[data-risk]").forEach(b => {
-      b.classList.remove("active");
-    });
-
-    button.classList.add("active");
-    renderRiskChart(button.dataset.risk);
-  });
+projects.forEach((p,i)=>{
+ const article=document.createElement("article");
+ article.className="project reveal";
+ article.dataset.category=p.category;
+ const tags=p.tags.map(t=>`<span class="tag">${t}</span>`).join("");
+ article.innerHTML=`
+  <div class="project-head">
+   <span class="project-num">RESEARCH ${String(i+1).padStart(2,"0")}</span>
+   <span class="tag">${categoryLabels[p.category]}</span>
+  </div>
+  <h3>${p.title}</h3>
+  <p>${p.description}</p>
+  <div class="tag-list">${tags}</div>
+  <div class="case-study hidden" id="case${i+1}">
+   <h4>Research question</h4><p>${p.question}</p>
+   <h4>Methodology</h4><p>${p.method}</p>
+   <h4>Documented results / scope</h4><p>${p.findings}</p>
+   <h4>Limitations</h4><p>${p.limitations}</p>
+  </div>
+  <div class="project-actions">
+   <button class="details-btn" type="button"
+    data-target="case${i+1}" aria-controls="case${i+1}"
+    aria-expanded="false">View Case Study +</button>
+   <a class="repo-link" href="${repo(p.slug)}"
+    target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+  </div>
+ `;
+ grid.appendChild(article);
 });
 
-/* SCROLL ANIMATIONS */
+document.querySelectorAll(".details-btn").forEach(button=>{
+ button.addEventListener("click",()=>{
+  const target=document.getElementById(button.dataset.target);
+  const opening=target.classList.contains("hidden");
+  target.classList.toggle("hidden");
+  button.setAttribute("aria-expanded",String(opening));
+  button.textContent=opening?"Hide Case Study −":"View Case Study +";
+ });
+});
 
-const reducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
-if (!reducedMotion && "IntersectionObserver" in window) {
-  document.body.classList.add("js-motion");
-
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.06});
-
-  document.querySelectorAll(".reveal").forEach(el => {
-    revealObserver.observe(el);
+/* FILTERS */
+const filterButtons=document.querySelectorAll(".filter-btn");
+filterButtons.forEach(button=>{
+ button.addEventListener("click",()=>{
+  const selected=button.dataset.filter;
+  let count=0;
+  filterButtons.forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  document.querySelectorAll(".project").forEach(card=>{
+   const visible=selected==="all"||card.dataset.category===selected;
+   card.classList.toggle("hidden",!visible);
+   if(visible)count++;
   });
+  document.getElementById("filterStatus").textContent=
+   `Showing ${count} ${count===1?"project":"projects"}`;
+ });
+});
 
-  const counters = document.querySelectorAll(".counter");
+/* RESEARCH ANALYTICS DATA */
+const dashboards={
+ meli:{
+  title:"MercadoLibre (MELI) Risk Analysis",
+  description:"Corrected Python research outputs for January 2022–January 2026. Tail losses are displayed as positive percentage magnitudes.",
+  slug:"financial-time-series-risk-analysis",
+  metrics:[
+   ["1,013","Daily log returns","Sample size"],
+   ["0.0437%","Mean daily return","Reported estimate"],
+   ["3.22%","Daily volatility","Reported estimate"],
+   ["29.35%","Student-t ES","99.9% loss magnitude"]
+  ],
+  type:"risk",
+  heading:"Historical vs Student-t tail risk",
+  methods:["Historical VaR","Student-t VaR","Expected Shortfall","ARMA","GARCH","MACD"],
+  interpretation:"The fitted Student-t approach reports a larger extreme-loss threshold and a substantially larger Expected Shortfall than the historical method. These results are model-based estimates, not maximum possible losses.",
+  sourceNote:"Corrected Python estimates previously identified in the MELI repository. Original academic-report Student-t figures differ."
+ },
+ credit:{
+  title:"Credit Risk Modelling",
+  description:"Excel-based Probability of Default research and credit risk assessment, supported by a project report.",
+  slug:"credit-risk-modelling",
+  metrics:[
+   ["PD","Core risk measure","Probability of Default"],
+   ["Excel","Primary tool","Model workbook"],
+   ["Report","Supporting file","Academic analysis"],
+   ["Model","Research focus","Credit assessment"]
+  ],
+  type:"process",
+  heading:"Credit risk modelling workflow",
+  methods:["Credit assessment","Probability of Default","Financial modelling","Risk classification"],
+  stages:["Borrower information","Risk assessment","PD modelling","Credit interpretation"],
+  interpretation:"The repository establishes the credit-risk modelling scope. Numerical PD distributions, classification accuracy or model discrimination statistics should only be added after reading the workbook and report.",
+  sourceNote:"Project scope from public README. Workflow is a conceptual representation, not a measured result."
+ },
+ market:{
+  title:"Multi-Asset Market Risk Analysis",
+  description:"Academic comparison of US equities, bonds and absolute-return strategies using market-risk and risk-adjusted performance metrics.",
+  slug:"multi-asset-market-risk-analysis",
+  metrics:[
+   ["3","Asset categories","Equities / Bonds / Absolute return"],
+   ["VaR","Tail-loss threshold","Risk metric"],
+   ["ES","Tail-loss severity","Risk metric"],
+   ["Sharpe","Performance metric","Risk-adjusted return"]
+  ],
+  type:"process",
+  heading:"Three-asset research framework",
+  methods:["Value at Risk","Expected Shortfall","Maximum Drawdown","Sharpe","Sortino"],
+  stages:["US Equities","Bonds","Absolute Return","Risk comparison"],
+  interpretation:"The repository documents analysis across three investment categories. It does not publish a verified ranking or numerical portfolio performance results in its README.",
+  sourceNote:"Categories and analytical methods are reported in the public repository. Diagram is conceptual."
+ },
+ operational:{
+  title:"Operational Risk Capital Modelling",
+  description:"MATLAB Loss Distribution Approach with Poisson frequency, extreme-value severity and Monte Carlo simulation.",
+  slug:"operational-risk-capital-modelling",
+  metrics:[
+   ["964","Valid loss observations","10-year sample"],
+   ["100,000","Monte Carlo simulations","Annual aggregate outcomes"],
+   ["€28.3M","Expected annual loss","Reported estimate"],
+   ["€1.323B","99.9% Monte Carlo VaR","Reported estimate"]
+  ],
+  type:"operational",
+  heading:"99.9% Operational VaR comparison",
+  methods:["Poisson Frequency","EVT / POT","GPD Severity","LDA","Monte Carlo","Adjusted SLA"],
+  interpretation:"The Monte Carlo estimate is €1.323 billion, compared with €1.280 billion from the adjusted Single Loss Approximation. The difference is €43 million, approximately 3.36% of the adjusted SLA estimate.",
+  sourceNote:"Reported academic estimates from the operational-risk repository. Not independently validated regulatory capital."
+ },
+ sovereign:{
+  title:"Sovereign Bond Yield Analysis",
+  description:"Python cross-sectional econometric analysis of 10-year government bond yields across 50 countries.",
+  slug:"sovereign-bond-yield-analysis",
+  metrics:[
+   ["50","Countries","Cross-sectional sample"],
+   ["10Y","Bond maturity","Sovereign yields"],
+   ["OLS","Regression method","Linear model"],
+   ["3","Diagnostic tests","RESET / BP / JB"]
+  ],
+  type:"process",
+  heading:"Econometric research framework",
+  methods:["OLS Regression","Credit Ratings","Inflation","Debt-to-GDP","Ramsey RESET","Breusch–Pagan","Jarque–Bera"],
+  stages:["50-country data","OLS regression","Diagnostics","Interpretation"],
+  interpretation:"The research evaluates associations between sovereign bond yields, credit ratings, inflation and government debt. Numerical coefficient estimates and significance levels are not presented in the public README.",
+  sourceNote:"Sample size, variables and diagnostic methods are reported in the public repository. Workflow is conceptual."
+ }
+};
 
-  const counterObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-
-      const el = entry.target;
-      const target = Number(el.dataset.target);
-      const start = performance.now();
-      const duration = 700;
-
-      function update(now) {
-        const progress = Math.min((now-start)/duration,1);
-        const eased = 1-Math.pow(1-progress,3);
-
-        el.textContent = Math.round(target*eased)
-          .toLocaleString("en-US");
-
-        if (progress<1) {
-          requestAnimationFrame(update);
-        } else {
-          el.textContent = target.toLocaleString("en-US");
-        }
-      }
-
-      requestAnimationFrame(update);
-      counterObserver.unobserve(el);
-    });
-  }, {threshold:.4});
-
-  counters.forEach(el => {
-    el.textContent = "0";
-    counterObserver.observe(el);
-  });
+/* HTML HELPERS */
+function metricHTML(items){
+ return `<div class="research-metrics">${
+  items.map(m=>`
+   <div class="research-metric">
+    <small>${m[1]}</small>
+    <strong>${m[0]}</strong>
+    <span>${m[2]}</span>
+   </div>
+  `).join("")
+ }</div>`;
 }
 
-/* OPTIONAL CV */
+function svgText(x,y,text,anchor="middle",size=12){
+ return `<text x="${x}" y="${y}" text-anchor="${anchor}"
+  font-size="${size}" fill="var(--text)">${text}</text>`;
+}
 
-/*
-  Upload Yash_Hingorani_CV.pdf to
-  the same folder as index.html.
-
-  CV links remain hidden until the
-  file is available and served as a PDF.
-*/
-
-const cvLinks = [
-  document.getElementById("heroCV"),
-  document.getElementById("contactCV")
-].filter(Boolean);
-
-fetch("Yash_Hingorani_CV.pdf", {method:"HEAD"})
-  .then(response => {
-    if (!response.ok) return;
-
-    const contentType = response.headers.get("content-type") || "";
-
-    if (contentType.includes("application/pdf")) {
-      cvLinks.forEach(link => {
-        link.classList.remove("hidden");
-      });
-    }
-  })
-  .catch(() => {
-    // CV stays hidden until uploaded.
+/* REAL MELI COMPARISON CHART */
+function meliChart(mode){
+ const data=[
+  {label:"Historical",var:17.63,es:18.09,color:"var(--blue)"},
+  {label:"Student-t",var:19.93,es:29.35,color:"var(--teal)"}
+ ];
+ const groups=mode==="both"
+  ?[{key:"var",label:"Value at Risk"},{key:"es",label:"Expected Shortfall"}]
+  :[{key:mode,label:mode==="var"?"Value at Risk":"Expected Shortfall"}];
+ let svg="";
+ const bottom=246,top=27,max=35;
+ const height=v=>v/max*(bottom-top);
+ for(let tick=0;tick<=35;tick+=5){
+  const y=bottom-height(tick);
+  svg+=`<line x1="65" y1="${y}" x2="570" y2="${y}"
+   stroke="var(--line)"/>`;
+  svg+=svgText(55,y+4,tick+"%","end",11);
+ }
+ groups.forEach((group,gi)=>{
+  const center=groups.length===1?320:gi===0?195:445;
+  data.forEach((item,i)=>{
+   const value=item[group.key],h=height(value);
+   const x=center+(i===0?-70:10),y=bottom-h;
+   svg+=`<rect x="${x}" y="${y}" width="60" height="${h}"
+    rx="5" fill="${item.color}">
+    <title>${item.label}: ${value}%</title></rect>`;
+   svg+=svgText(x+30,y-10,value.toFixed(2)+"%", "middle",12);
   });
+  svg+=svgText(center,276,group.label,"middle",12);
+ });
+ svg+=svgText(320,309,"99.9% confidence · Percentage loss magnitude","middle",11);
+ return svg;
+}
 
+/* REAL OPERATIONAL COMPARISON CHART */
+function operationalChart(){
+ const vals=[
+  {label:"Monte Carlo",value:1.323,color:"var(--blue)"},
+  {label:"Adjusted SLA",value:1.280,color:"var(--teal)"}
+ ];
+ let svg="";
+ const left=145,right=565,max=1.5;
+ for(let tick=0;tick<=1.5+0.0001;tick+=.3){
+  const x=left+tick/max*(right-left);
+  svg+=`<line x1="${x}" y1="38" x2="${x}" y2="242"
+   stroke="var(--line)"/>`;
+  svg+=svgText(x,263,"€"+tick.toFixed(1)+"B","middle",10);
+ }
+ vals.forEach((item,i)=>{
+  const y=80+i*100,w=item.value/max*(right-left);
+  svg+=svgText(left-12,y+23,item.label,"end",12);
+  svg+=`<rect x="${left}" y="${y}" width="${w}" height="45"
+   rx="5" fill="${item.color}">
+   <title>${item.label}: €${item.value.toFixed(3)} billion</title>
+   </rect>`;
+  svg+=svgText(left+w-9,y+28,"€"+item.value.toFixed(3)+"B","end",12);
+ });
+ svg+=svgText(350,305,"Reported 99.9% aggregate-loss VaR","middle",11);
+ return svg;
+}
+
+/* CONCEPTUAL WORKFLOW — NOT NUMERICAL */
+function processChart(stages){
+ let svg="";
+ const xs=[14,164,314,464],width=120;
+ stages.forEach((stage,i)=>{
+  const x=xs[i];
+  svg+=`<rect x="${x}" y="87" width="${width}" height="90"
+   rx="10" fill="var(--tint)" stroke="var(--line)"/>`;
+  const words=stage.split(" ");
+  const lines=[];
+  let line="";
+  words.forEach(word=>{
+   if((line+" "+word).trim().length>14 && line){
+    lines.push(line);line=word;
+   }else line+=(line?" ":"")+word;
+  });
+  if(line)lines.push(line);
+  lines.forEach((part,j)=>{
+   svg+=svgText(x+width/2,125+j*17,part,"middle",12);
+  });
+  if(i<3){
+   svg+=`<path d="M${x+width+4} 132 L${xs[i+1]-8} 132"
+    stroke="var(--blue)" stroke-width="2"/>`;
+   svg+=`<path d="M${xs[i+1]-14} 127 L${xs[i+1]-8} 132
+    L${xs[i+1]-14} 137" fill="none"
+    stroke="var(--blue)" stroke-width="2"/>`;
+  }
+ });
+ svg+=svgText(300,242,"Conceptual research workflow · Not measured results","middle",11);
+ return svg;
+}
+
+/* INTERACTIVE DASHBOARD RENDERER */
+let currentAnalysis="meli";
+let currentRiskMode="both";
+const analyticsContent=document.getElementById("analyticsContent");
+
+function renderDashboard(key){
+ const d=dashboards[key];
+ if(!d)return;
+ currentAnalysis=key;
+ let chartControls="";
+ if(d.type==="risk"){
+  chartControls=`
+   <div class="chart-controls">
+    <button type="button" class="chart-btn ${currentRiskMode==="both"?"active":""}" data-risk="both">Both</button>
+    <button type="button" class="chart-btn ${currentRiskMode==="var"?"active":""}" data-risk="var">VaR</button>
+    <button type="button" class="chart-btn ${currentRiskMode==="es"?"active":""}" data-risk="es">Expected Shortfall</button>
+   </div>`;
+ }
+ let chart="";
+ if(d.type==="risk")chart=meliChart(currentRiskMode);
+ if(d.type==="operational")chart=operationalChart();
+ if(d.type==="process")chart=processChart(d.stages);
+
+ let details="";
+ if(key==="meli"){
+  details=`
+   <h3>Reported 99.9% risk estimates</h3>
+   <div class="table-wrap">
+    <table>
+     <thead><tr><th>Method</th><th>VaR</th><th>ES</th></tr></thead>
+     <tbody>
+      <tr><td>Historical</td><td>17.63%</td><td>18.09%</td></tr>
+      <tr><td>Student-t</td><td>19.93%</td><td>29.35%</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="fact"><strong>2.30 percentage points</strong><small>Student-t minus Historical VaR</small></div>
+   <div class="fact"><strong>11.26 percentage points</strong><small>Student-t minus Historical ES</small></div>`;
+ }else if(key==="operational"){
+  details=`
+   <h3>Reported operational risk results</h3>
+   <div class="table-wrap">
+    <table>
+     <thead><tr><th>Measure</th><th>Estimate</th></tr></thead>
+     <tbody>
+      <tr><td>Annual event frequency</td><td>96.4</td></tr>
+      <tr><td>Expected annual loss</td><td>€28.3M</td></tr>
+      <tr><td>Monte Carlo VaR</td><td>€1.323B</td></tr>
+      <tr><td>Adjusted SLA VaR</td><td>€1.280B</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="fact"><strong>€43 million</strong><small>Difference between reported VaR estimates</small></div>`;
+ }else{
+  details=`
+   <h3>Research scope &amp; evidence</h3>
+   <p>${projects.find(p=>p.slug===d.slug).findings}</p>
+   <div class="fact"><strong>Model documentation</strong><small>See original repository files for detailed numerical outputs</small></div>
+   <div class="fact"><strong>No fabricated metrics</strong><small>Only publicly documented scope is displayed</small></div>`;
+ }
+
+ analyticsContent.innerHTML=`
+  <h3 class="analytics-title">${d.title}</h3>
+  <p class="analytics-description">${d.description}</p>
+  ${metricHTML(d.metrics)}
+  <div class="analytics-grid">
+   <div class="panel">
+    <div class="chart-head">
+     <h3>${d.heading}</h3>
+     ${chartControls}
+    </div>
+    ${d.type==="process"?"":`
+     <div class="legend">
+      <span><i class="dot blue"></i>${key==="operational"?"Monte Carlo":"Historical"}</span>
+      <span><i class="dot teal"></i>${key==="operational"?"Adjusted SLA":"Student-t"}</span>
+     </div>`}
+    <div class="chart-frame">
+     <svg viewBox="0 0 600 325" role="img"
+      aria-label="${d.heading}">${chart}</svg>
+    </div>
+    <p class="chart-caption">${d.sourceNote}</p>
+   </div>
+   <div class="panel">
+    ${details}
+    <a class="btn" style="margin-top:19px"
+     href="${repo(d.slug)}" target="_blank"
+     rel="noopener noreferrer">View Original Research ↗</a>
+   </div>
+  </div>
+  <div class="insight">
+   <b>Research interpretation</b>
+   <p>${d.interpretation}</p>
+  </div>
+  <div class="method-chips">
+   ${d.methods.map(m=>`<span class="tag">${m}</span>`).join("")}
+  </div>
+ `;
+ document.querySelectorAll("[data-risk]").forEach(button=>{
+  button.addEventListener("click",()=>{
+   currentRiskMode=button.dataset.risk;
+   renderDashboard("meli");
+  });
+ });
+}
+
+/* INITIAL DASHBOARD */
+renderDashboard("meli");
+
+/* ANALYTICS TABS */
+document.querySelectorAll(".tab").forEach(button=>{
+ button.addEventListener("click",()=>{
+  const key=button.dataset.analysis.trim().replace(/\s/g,"");
+  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  renderDashboard(key);
+ });
+});
+
+/* ANIMATIONS */
+const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!reducedMotion && "IntersectionObserver" in window){
+ document.body.classList.add("js-motion");
+ const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
+   }
+  });
+ },{threshold:.05});
+ document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+ const countObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(!entry.isIntersecting)return;
+   const el=entry.target,target=Number(el.dataset.target);
+   const start=performance.now();
+   function frame(now){
+    const t=Math.min((now-start)/700,1);
+    el.textContent=Math.round(target*(1-Math.pow(1-t,3))).toLocaleString("en-US");
+    if(t<1)requestAnimationFrame(frame);
+   }
+   requestAnimationFrame(frame);
+   countObserver.unobserve(el);
+  });
+ },{threshold:.3});
+ document.querySelectorAll(".counter").forEach(el=>{
+  el.textContent="0";
+  countObserver.observe(el);
+ });
+}
+
+/* OPTIONAL CV — HIDDEN UNTIL UPLOADED */
+const cvLinks=[
+ document.getElementById("heroCV"),
+ document.getElementById("contactCV")
+];
+fetch("Yash_Hingorani_CV.pdf",{method:"HEAD"})
+ .then(response=>{
+  if(!response.ok)return;
+  const type=response.headers.get("content-type")||"";
+  if(type.includes("application/pdf")){
+   cvLinks.forEach(link=>link.classList.remove("hidden"));
+  }
+ })
+ .catch(()=>{});
 </script>
-
 </body>
 </html>
