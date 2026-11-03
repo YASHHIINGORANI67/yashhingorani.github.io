@@ -289,7 +289,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <a class="btn primary" href="#analytics">Explore Analytics ↗</a>
 <a class="btn" href="#projects">Research Projects</a>
 <a class="btn" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-<a class="btn hidden" id="heroCV" href="Yash_Hingorani_CV.pdf" download>Download CV ↓</a>
+<a class="btn hidden" id="heroCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
 </div>
 </div>
 <aside class="panel profile reveal">
@@ -534,7 +534,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <a class="contact-link" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
 <a class="contact-link" href="https://github.com/YASHHIINGORANI67" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
 <a class="contact-link" href="mailto:Yash.hingorani@gsom.polimi.it">Yash.hingorani@gsom.polimi.it ↗</a>
-<a class="contact-link hidden" id="contactCV" href="Yash_Hingorani_CV.pdf" download>Download CV ↓</a>
+<a class="contact-link hidden" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
 </div>
 </div>
 </div>
@@ -1103,7 +1103,7 @@ const cvLinks=[
  document.getElementById("heroCV"),
  document.getElementById("contactCV")
 ];
-fetch("Yash_Hingorani_CV.pdf",{method:"HEAD"})
+fetch("Yash_Hingorani_CV_One_Page.pdf",{method:"HEAD"})
  .then(response=>{
   if(!response.ok)return;
   const type=response.headers.get("content-type")||"";
