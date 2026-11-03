@@ -263,6 +263,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <a href="#analytics">Analytics</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
+<a href="#career">Career</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -363,7 +364,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 </div>
 
 <div class="tabs" role="group" aria-label="Select research project">
-<button class="tab active" type="button" data-analysis="m eli">MELI Time Series</button>
+<button class="tab active" type="button" data-analysis="meli">MELI Time Series</button>
 <button class="tab" type="button" data-analysis="credit">Credit Risk</button>
 <button class="tab" type="button" data-analysis="market">Multi-Asset Risk</button>
 <button class="tab" type="button" data-analysis="operational">Operational Risk</button>
@@ -456,6 +457,16 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 </div>
 </section>
 
+<!-- RECRUITER PROFILE -->
+<section class="section" id="career"><div class="container">
+<div class="section-head"><div class="eyebrow">07 / Professional Profile</div><h2>Financial risk research, backed by evidence</h2><p>Applied quantitative research for risk management, financial analytics and quantitative finance opportunities.</p></div>
+<div class="domain-grid">
+<div class="domain"><b>Risk measurement</b><p>VaR, Expected Shortfall, portfolio drawdown, credit risk and operational loss simulation.</p></div>
+<div class="domain"><b>Quantitative modelling</b><p>Python econometrics, time-series methods, MATLAB simulation and Excel financial models.</p></div>
+<div class="domain"><b>Research reporting</b><p>Model documentation, assumptions, diagnostics and links to original research repositories.</p></div>
+</div>
+<div class="panel" style="margin-top:18px"><h3>Recruiter research brief</h3><p>Five academic research projects spanning credit, market, operational and sovereign risk. The dashboard distinguishes verified descriptive statistics, reported model estimates and methodology-only research. The source repositories contain original reports and model files for technical review.</p><p><strong>Career interests:</strong> Financial Risk Analyst · Market Risk Analyst · Credit Risk Analyst · Quantitative Risk Research · Financial Data Analytics.</p><div class="actions"><a class="btn primary" href="#projects">Review projects ↗</a><a class="btn" href="#contact">Get in touch ↗</a></div></div>
+</div></section>
 <!-- ABOUT -->
 <section class="section" id="about">
 <div class="container">
@@ -590,7 +601,7 @@ const projects=[
   tags:["Python","OLS","Inflation","Credit Ratings","Diagnostics"],
   question:"How are sovereign yields associated with credit ratings, inflation and government debt?",
   method:"OLS regression with Ramsey RESET, Breusch–Pagan and Jarque–Bera diagnostics.",
-  findings:"The public README confirms a 50-country dataset and model specification. It does not state numerical regression coefficients or p-values.",
+  findings:"The source CSV contains 50 countries, with mean yield 7.78%, median 4.30%, minimum 0.9% and maximum 55.0%. Regression coefficients and p-values are not reproduced as verified outputs.",
   limitations:"Cross-sectional regression describes associations, not necessarily causal effects. Specification and residual assumptions require testing."
  },
  {
@@ -745,16 +756,16 @@ const dashboards={
   slug:"sovereign-bond-yield-analysis",
   metrics:[
    ["50","Countries","Cross-sectional sample"],
-   ["10Y","Bond maturity","Sovereign yields"],
-   ["OLS","Regression method","Linear model"],
-   ["3","Diagnostic tests","RESET / BP / JB"]
+   ["7.78%","Mean 10Y yield","From source CSV"],
+   ["4.30%","Median 10Y yield","From source CSV"],
+   ["55.0%","Highest 10Y yield","Argentina in CSV"]
   ],
-  type:"process",
-  heading:"Econometric research framework",
+  type:"sovereign",
+  heading:"Top five sovereign yields in the dataset",
   methods:["OLS Regression","Credit Ratings","Inflation","Debt-to-GDP","Ramsey RESET","Breusch–Pagan","Jarque–Bera"],
   stages:["50-country data","OLS regression","Diagnostics","Interpretation"],
-  interpretation:"The research evaluates associations between sovereign bond yields, credit ratings, inflation and government debt. Numerical coefficient estimates and significance levels are not presented in the public README.",
-  sourceNote:"Sample size, variables and diagnostic methods are reported in the public repository. Workflow is conceptual."
+  interpretation:"The 50-country CSV has a 7.78% arithmetic mean and 4.30% median yield. The extreme values, particularly Argentina, influence the mean. The Python research also investigates yield associations with debt, inflation and credit ratings; descriptive statistics alone do not establish causality.",
+  sourceNote:"Values calculated from the repository bond_yield_data.csv; not live yields."
  }
 };
 
@@ -811,6 +822,13 @@ function meliChart(mode){
 }
 
 /* REAL OPERATIONAL COMPARISON CHART */
+function sovereignChart(){
+ const items=[["Argentina",55],["Ghana",28],["Turkey",26.5],["Ukraine",22],["Pakistan",16]];
+ let svg="";
+ for(let tick=0;tick<=60;tick+=15){const x=135+tick/60*395;svg+=`<line x1="${x}" y1="12" x2="${x}" y2="273" stroke="var(--line)"/>`;svg+=svgText(x,295,tick+"%","middle",11);}
+ items.forEach((a,i)=>{const y=25+i*49,w=a[1]/60*395;svg+=svgText(126,y+22,a[0],"end",12);svg+=`<rect x="135" y="${y}" width="${w}" height="31" rx="4" fill="var(--blue)"><title>${a[0]}: ${a[1]}%</title></rect>`;svg+=svgText(Math.min(145+w,565),y+21,a[1].toFixed(1)+"%","start",11);});
+ return svg;
+}
 function operationalChart(){
  const vals=[
   {label:"Monte Carlo",value:1.323,color:"var(--blue)"},
@@ -890,6 +908,7 @@ function renderDashboard(key){
  let chart="";
  if(d.type==="risk")chart=meliChart(currentRiskMode);
  if(d.type==="operational")chart=operationalChart();
+ if(d.type==="sovereign")chart=sovereignChart();
  if(d.type==="process")chart=processChart(d.stages);
 
  let details="";
@@ -907,6 +926,8 @@ function renderDashboard(key){
    </div>
    <div class="fact"><strong>2.30 percentage points</strong><small>Student-t minus Historical VaR</small></div>
    <div class="fact"><strong>11.26 percentage points</strong><small>Student-t minus Historical ES</small></div>`;
+ }else if(key==="sovereign"){
+  details=`<h3>Verified descriptive statistics</h3><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Countries</td><td>50</td></tr><tr><td>Mean yield</td><td>7.78%</td></tr><tr><td>Median yield</td><td>4.30%</td></tr><tr><td>Minimum: Switzerland</td><td>0.90%</td></tr><tr><td>Maximum: Argentina</td><td>55.00%</td></tr></tbody></table></div><p><a class="repo-link" href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis/blob/main/bond_yield_data.csv" target="_blank" rel="noopener noreferrer">Verify against source CSV ↗</a></p><p class="muted">Sample descriptions, not live market data or regression estimates.</p>`;
  }else if(key==="operational"){
   details=`
    <h3>Reported operational risk results</h3>
@@ -927,7 +948,8 @@ function renderDashboard(key){
    <h3>Research scope &amp; evidence</h3>
    <p>${projects.find(p=>p.slug===d.slug).findings}</p>
    <div class="fact"><strong>Model documentation</strong><small>See original repository files for detailed numerical outputs</small></div>
-   <div class="fact"><strong>No fabricated metrics</strong><small>Only publicly documented scope is displayed</small></div>`;
+   <div class="fact"><strong>Numerical estimates not yet verified</strong><small>Inspect original workbooks and reports</small></div>
+   <p><a class="repo-link" href="${repo(d.slug)}" target="_blank" rel="noopener noreferrer">View source workbooks and research report ↗</a></p>`;
  }
 
  analyticsContent.innerHTML=`
