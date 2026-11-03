@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Yash Hingorani's financial risk management portfolio featuring quantitative finance, financial analytics, and risk modelling projects.">
+<meta name="description" content="Yash Hingorani — Financial Risk Management student at Politecnico di Milano. Quantitative finance, risk modelling, and financial analytics portfolio.">
 
 <title>Yash Hingorani | Financial Risk Analytics</title>
 
@@ -24,13 +24,9 @@
   --radius: 14px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -44,8 +40,7 @@ a {
   text-decoration: none;
 }
 
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 4px;
 }
@@ -75,7 +70,6 @@ button:focus-visible {
   align-items: center;
   gap: 12px;
   font-weight: 800;
-  letter-spacing: -.3px;
 }
 
 .brand-icon {
@@ -84,7 +78,7 @@ button:focus-visible {
   width: 42px;
   height: 42px;
   background: var(--blue);
-  color: #ffffff;
+  color: #fff;
   border-radius: 12px;
   font-size: 17px;
 }
@@ -205,9 +199,7 @@ h1 {
   max-width: 800px;
 }
 
-h1 span {
-  color: var(--blue);
-}
+h1 span { color: var(--blue); }
 
 .intro {
   max-width: 700px;
@@ -247,11 +239,7 @@ h1 span {
   border-color: var(--blue);
 }
 
-.btn.primary:hover {
-  background: #1d4ed8;
-}
-
-/* SHARED CARDS */
+/* CARDS */
 
 .profile,
 .panel,
@@ -305,9 +293,7 @@ h1 span {
   font-size: 12px;
 }
 
-.mini-row span:first-child {
-  color: var(--muted);
-}
+.mini-row span:first-child { color: var(--muted); }
 
 .mini-row span:last-child {
   text-align: right;
@@ -382,9 +368,7 @@ h1 span {
   margin-top: 16px;
 }
 
-.panel {
-  padding: 24px;
-}
+.panel { padding: 24px; }
 
 .panel-head {
   display: flex;
@@ -558,9 +542,7 @@ h1 span {
   font-weight: 700;
 }
 
-.project-link:hover {
-  color: #1e40af;
-}
+.project-link:hover { color: #1e40af; }
 
 /* ABOUT */
 
@@ -600,18 +582,35 @@ h1 span {
   flex-wrap: wrap;
 }
 
-.contact h3 {
-  margin: 0 0 6px;
+.contact h3 { margin: 0 0 6px; }
+
+.contact p { margin: 0 0 10px; }
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.contact p {
-  margin: 0 0 10px;
-}
-
-.contact .email {
-  color: var(--blue);
+.contact-links a {
+  display: block;
+  max-width: 100%;
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 9px;
+  padding: 11px 16px;
+  font-size: 13px;
   font-weight: 600;
   overflow-wrap: anywhere;
+  transition: .2s;
+}
+
+.contact-links a:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
 }
 
 /* FOOTER */
@@ -635,19 +634,14 @@ h1 span {
     grid-template-columns: 210px minmax(0,1fr);
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
+  .hero,
   .analytics {
     grid-template-columns: 1fr;
   }
 }
 
 @media(max-width:760px) {
-  .layout {
-    display: block;
-  }
+  .layout { display: block; }
 
   .sidebar {
     height: auto;
@@ -672,36 +666,24 @@ h1 span {
     font-size: 12px;
   }
 
-  .main {
-    padding: 20px 18px 45px;
-  }
+  .main { padding: 20px 18px 45px; }
 
-  .hero {
-    padding-top: 35px;
-  }
+  .hero { padding-top: 35px; }
 
   .project-grid,
   .about-grid {
     grid-template-columns: 1fr;
   }
 
-  .metrics {
-    gap: 9px;
-  }
+  .metrics { gap: 9px; }
 
-  .metric {
-    padding: 15px;
-  }
+  .metric { padding: 15px; }
 
-  .metric strong {
-    font-size: 26px;
-  }
+  .metric strong { font-size: 26px; }
 }
 
 @media(max-width:420px) {
-  .metrics {
-    grid-template-columns: 1fr;
-  }
+  .metrics { grid-template-columns: 1fr; }
 
   .bar-row {
     grid-template-columns: 90px minmax(0,1fr) 25px;
@@ -714,12 +696,11 @@ h1 span {
 }
 
 @media(prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   .btn,
-  .project {
+  .project,
+  .contact-links a {
     transition: none;
   }
 
@@ -774,8 +755,7 @@ h1 span {
       Financial Risk Management<br>
 
       <a href="https://github.com/YASHHIINGORANI67"
-         target="_blank"
-         rel="noopener noreferrer">
+         target="_blank" rel="noopener noreferrer">
         GitHub Profile ↗
       </a>
     </div>
@@ -824,9 +804,14 @@ h1 span {
 
           <a class="btn"
              href="https://github.com/YASHHIINGORANI67"
-             target="_blank"
-             rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer">
             View GitHub ↗
+          </a>
+
+          <a class="btn"
+             href="https://www.linkedin.com/in/yashhingorani"
+             target="_blank" rel="noopener noreferrer">
+            LinkedIn ↗
           </a>
         </div>
       </div>
@@ -1036,8 +1021,7 @@ h1 span {
 
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/credit-risk-modelling"
-             target="_blank"
-             rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer">
             Explore repository ↗
           </a>
 
@@ -1068,8 +1052,7 @@ h1 span {
 
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/multi-asset-market-risk-analysis"
-             target="_blank"
-             rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer">
             Explore repository ↗
           </a>
 
@@ -1100,8 +1083,7 @@ h1 span {
 
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/operational-risk-capital-modelling"
-             target="_blank"
-             rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer">
             Explore repository ↗
           </a>
 
@@ -1133,8 +1115,7 @@ h1 span {
 
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis"
-             target="_blank"
-             rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer">
             Explore repository ↗
           </a>
 
@@ -1166,8 +1147,7 @@ h1 span {
 
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
-             target="_blank"
-             rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer">
             Explore repository ↗
           </a>
 
@@ -1249,23 +1229,34 @@ h1 span {
       <div class="panel contact">
 
         <div>
-          <h3>Interested in discussing quantitative risk?</h3>
+          <h3>Let's connect</h3>
 
           <p>
-            Reach out about financial risk management,
-            research, or related opportunities.
+            Open to conversations about financial risk management,
+            quantitative finance, data analytics, and related
+            professional opportunities.
           </p>
 
-          <a class="email"
-             href="mailto:Yash.hingorani@gsom.polimi.it">
-            Yash.hingorani@gsom.polimi.it
-          </a>
-        </div>
+          <div class="contact-links">
 
-        <a class="btn primary"
-           href="mailto:Yash.hingorani@gsom.polimi.it">
-          Send email ↗
-        </a>
+            <a href="https://www.linkedin.com/in/yashhingorani"
+               target="_blank"
+               rel="noopener noreferrer">
+              LinkedIn Profile ↗
+            </a>
+
+            <a href="https://github.com/YASHHIINGORANI67"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub Portfolio ↗
+            </a>
+
+            <a href="mailto:Yash.hingorani@gsom.polimi.it">
+              Yash.hingorani@gsom.polimi.it ↗
+            </a>
+
+          </div>
+        </div>
 
       </div>
 
