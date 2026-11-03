@@ -4,504 +4,801 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b1220">
-<meta name="description" content="Yash Hingorani — Financial Risk Management master's student at Politecnico di Milano. Explore five quantitative finance and risk analytics projects.">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Yash Hingorani's financial risk management portfolio featuring quantitative finance, financial analytics, and risk modelling projects.">
+
 <title>Yash Hingorani | Financial Risk Analytics</title>
+
 <style>
 :root {
-  --bg:#0b1220;
-  --sidebar:#0e1729;
-  --panel:#121f34;
-  --panel2:#182941;
-  --line:#283b55;
-  --text:#eef5ff;
-  --muted:#9aacc4;
-  --blue:#64a6ff;
-  --cyan:#65d4d4;
-  --green:#70d5aa;
-  --radius:16px;
+  --bg: #ffffff;
+  --sidebar: #f8fafc;
+  --panel: #ffffff;
+  --panel2: #f8fafc;
+  --line: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --blue: #2563eb;
+  --cyan: #0891b2;
+  --green: #059669;
+  --radius: 14px;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font:15px/1.65 Inter,Segoe UI,Arial,sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.65 "Segoe UI", Arial, sans-serif;
 }
-a { color:inherit; text-decoration:none; }
-a:focus-visible,button:focus-visible {
-  outline:2px solid var(--cyan);
-  outline-offset:4px;
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
-button { font:inherit; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
 .layout {
-  display:grid;
-  grid-template-columns:252px minmax(0,1fr);
-  min-height:100vh;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 100vh;
 }
+
+/* SIDEBAR */
+
 .sidebar {
-  position:sticky;
-  top:0;
-  height:100vh;
-  background:var(--sidebar);
-  border-right:1px solid var(--line);
-  padding:30px 20px;
-  display:flex;
-  flex-direction:column;
-  gap:32px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--sidebar);
+  border-right: 1px solid var(--line);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
+
 .brand {
-  display:flex;
-  gap:12px;
-  align-items:center;
-  font-weight:800;
-  letter-spacing:-.3px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  letter-spacing: -.3px;
 }
+
 .brand-icon {
-  display:grid;
-  place-items:center;
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  background:#2457ad;
-  color:white;
-  font-size:17px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--blue);
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 17px;
 }
+
 .brand small {
-  display:block;
-  font-size:11px;
-  color:var(--muted);
-  font-weight:500;
-  letter-spacing:.4px;
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .6px;
+  font-weight: 500;
 }
-.nav-label,.eyebrow,.kicker {
-  font-size:11px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-weight:700;
+
+.nav-label {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-.nav { display:grid; gap:7px; }
+
+.nav {
+  display: grid;
+  gap: 7px;
+}
+
 .nav a {
-  padding:11px 13px;
-  border-radius:10px;
-  color:var(--muted);
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-size:14px;
+  padding: 12px 13px;
+  border-radius: 9px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  transition: .2s;
 }
-.nav a:hover,.nav a.active {
-  background:#1c3151;
-  color:var(--text);
+
+.nav a:hover,
+.nav a.active {
+  background: #dbeafe;
+  color: #1d4ed8;
 }
+
 .nav .symbol {
-  color:var(--blue);
-  width:20px;
-  text-align:center;
+  color: var(--blue);
+  width: 20px;
+  text-align: center;
 }
+
 .sidebar-bottom {
-  margin-top:auto;
-  border-top:1px solid var(--line);
-  padding-top:18px;
-  color:var(--muted);
-  font-size:12px;
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 12px;
 }
-.sidebar-bottom a { color:var(--blue); }
+
+.sidebar-bottom a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* MAIN */
+
 .main {
-  max-width:1450px;
-  width:100%;
-  padding:30px clamp(20px,4vw,64px) 60px;
-  margin:0 auto;
-  min-width:0;
+  max-width: 1450px;
+  width: 100%;
+  padding: 30px clamp(20px, 4vw, 64px) 60px;
+  margin: 0 auto;
+  min-width: 0;
 }
+
 .topline {
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  align-items:center;
-  color:var(--muted);
-  font-size:12px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
 }
-.status { display:flex; align-items:center; gap:8px; }
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .status-dot {
-  height:8px;
-  width:8px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 0 4px #70d5aa18;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
 }
+
+/* HERO */
+
 .hero {
-  padding:54px 0 32px;
-  display:grid;
-  grid-template-columns:minmax(0,1.6fr) minmax(260px,.85fr);
-  gap:24px;
-  align-items:stretch;
+  padding: 55px 0 35px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, .85fr);
+  gap: 24px;
+  align-items: stretch;
 }
-.eyebrow { color:var(--blue); }
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
 h1 {
-  font-size:clamp(32px,4.1vw,58px);
-  line-height:1.12;
-  letter-spacing:-1.8px;
-  margin:15px 0 20px;
-  max-width:780px;
+  font-size: clamp(34px, 4.1vw, 58px);
+  line-height: 1.13;
+  letter-spacing: -1.8px;
+  margin: 15px 0 20px;
+  max-width: 800px;
 }
-h1 span { color:var(--blue); }
+
+h1 span {
+  color: var(--blue);
+}
+
 .intro {
-  max-width:710px;
-  color:var(--muted);
-  font-size:16px;
-  margin:0 0 23px;
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 25px;
 }
-.actions { display:flex; gap:10px; flex-wrap:wrap; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .btn {
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:11px 17px;
-  font-weight:700;
-  font-size:13px;
-  transition:.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  background: #ffffff;
+  transition: .2s;
 }
+
 .btn.primary {
-  background:#3279e4;
-  border-color:#3279e4;
-  color:white;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
 }
+
 .btn:hover {
-  transform:translateY(-2px);
-  border-color:var(--blue);
+  transform: translateY(-2px);
+  border-color: var(--blue);
 }
-.profile,.panel,.metric,.project {
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
+
+.btn.primary:hover {
+  background: #1d4ed8;
 }
-.profile {
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  gap:20px;
-}
-.profile .kicker { color:var(--cyan); }
-.profile h2 { font-size:20px; margin:5px 0 8px; }
-.profile p {
-  margin:0;
-  color:var(--muted);
-  font-size:13px;
-}
-.profile .mini {
-  border-top:1px solid var(--line);
-  padding-top:16px;
-  display:grid;
-  gap:12px;
-}
-.mini-row {
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  font-size:12px;
-}
-.mini-row span:first-child { color:var(--muted); }
-.mini-row span:last-child { text-align:right; }
-.section {
-  padding-top:34px;
-  scroll-margin-top:30px;
-}
-.section-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:16px;
-  margin-bottom:17px;
-}
-.section-heading h2 {
-  font-size:23px;
-  letter-spacing:-.6px;
-  margin:0;
-}
-.section-heading p {
-  color:var(--muted);
-  font-size:12px;
-  margin:0;
-}
-.metrics {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-}
-.metric { padding:22px; }
-.metric .label { color:var(--muted); font-size:12px; }
-.metric strong {
-  display:block;
-  font-size:32px;
-  line-height:1.3;
-  margin:8px 0 3px;
-}
-.metric .foot { font-size:11px; color:var(--cyan); }
-.analytics {
-  display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(250px,1fr);
-  gap:16px;
-  margin-top:16px;
-}
-.panel { padding:24px; }
-.panel-head {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.panel h3 { font-size:16px; margin:0; }
-.panel-note { font-size:11px; color:var(--muted); }
-.coverage {
-  margin-top:26px;
-  display:grid;
-  gap:15px;
-}
-.bar-row {
-  display:grid;
-  grid-template-columns:125px minmax(0,1fr) 30px;
-  align-items:center;
-  gap:12px;
-  font-size:12px;
-  color:var(--muted);
-}
-.bar-track {
-  height:9px;
-  background:#253a53;
-  border-radius:10px;
-  overflow:hidden;
-}
-.bar-fill {
-  height:100%;
-  background:linear-gradient(90deg,#397bdc,#70d4e8);
-  border-radius:10px;
-}
-.bar-row b {
-  text-align:right;
-  color:var(--text);
-  font-weight:600;
-}
-.note {
-  font-size:11px;
-  color:var(--muted);
-  margin:22px 0 0;
-}
-.method-list {
-  display:grid;
-  gap:13px;
-  margin-top:21px;
-}
-.method { display:flex; align-items:start; gap:12px; }
-.method-icon {
-  flex:0 0 32px;
-  height:32px;
-  display:grid;
-  place-items:center;
-  border-radius:9px;
-  background:#234467;
-  color:var(--cyan);
-}
-.method strong { display:block; font-size:13px; }
-.method small { color:var(--muted); font-size:11px; }
-.project-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-}
+
+/* SHARED CARDS */
+
+.profile,
+.panel,
+.metric,
 .project {
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  transition:transform .2s,border-color .2s;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, .035);
 }
+
+/* PROFILE */
+
+.profile {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.profile .kicker {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.profile h2 {
+  font-size: 21px;
+  margin: 6px 0;
+}
+
+.profile p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.profile .mini {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  display: grid;
+  gap: 13px;
+}
+
+.mini-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.mini-row span:first-child {
+  color: var(--muted);
+}
+
+.mini-row span:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+
+/* SECTIONS */
+
+.section {
+  padding-top: 36px;
+  scroll-margin-top: 25px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  font-size: 24px;
+  letter-spacing: -.6px;
+  margin: 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* METRICS */
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metric {
+  padding: 23px;
+  background: var(--panel2);
+}
+
+.metric .label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metric strong {
+  display: block;
+  font-size: 33px;
+  line-height: 1.3;
+  margin: 8px 0 3px;
+}
+
+.metric .foot {
+  font-size: 11px;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ANALYTICS */
+
+.analytics {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(250px, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.panel h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.panel-note {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.coverage {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 125px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.bar-track {
+  height: 9px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  border-radius: 10px;
+}
+
+.bar-row b {
+  color: var(--text);
+  text-align: right;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 11px;
+  margin: 22px 0 0;
+}
+
+/* METHODS */
+
+.method-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.method {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+}
+
+.method-icon {
+  flex: 0 0 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: #eff6ff;
+  color: var(--blue);
+  border-radius: 9px;
+}
+
+.method strong {
+  display: block;
+  font-size: 13px;
+}
+
+.method small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* PROJECTS */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: .2s;
+}
+
 .project:hover {
-  transform:translateY(-3px);
-  border-color:#4e83bd;
+  transform: translateY(-3px);
+  border-color: #93c5fd;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, .08);
 }
+
 .project-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
+
 .project-index {
-  font-size:12px;
-  color:var(--cyan);
-  font-weight:700;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
 }
+
 .category {
-  font-size:10px;
-  color:var(--blue);
-  background:#1a3555;
-  padding:6px 9px;
-  border-radius:7px;
-  font-weight:700;
-  letter-spacing:.5px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 6px 9px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 700;
 }
+
 .project h3 {
-  font-size:19px;
-  line-height:1.35;
-  letter-spacing:-.3px;
-  margin:0;
+  font-size: 19px;
+  line-height: 1.35;
+  margin: 0;
 }
+
 .project p {
-  color:var(--muted);
-  font-size:13px;
-  margin:0;
-  flex:1;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+  flex: 1;
 }
-.tags { display:flex; flex-wrap:wrap; gap:7px; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
 .tag {
-  font-size:10px;
-  color:#bfd9f8;
-  border:1px solid #355171;
-  border-radius:6px;
-  padding:5px 8px;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 10px;
 }
+
 .project-link {
-  border-top:1px solid var(--line);
-  padding-top:15px;
-  color:var(--blue);
-  font-size:13px;
-  font-weight:700;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
 }
-.project-link:hover { color:white; }
+
+.project-link:hover {
+  color: #1e40af;
+}
+
+/* ABOUT */
+
 .about-grid {
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:16px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
 }
-.panel p { color:var(--muted); font-size:13px; }
-.panel p:last-child { margin-bottom:0; }
+
+.panel p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .skills {
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  margin-top:18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
 }
+
 .skills span {
-  background:#1b3655;
-  color:#c1dfff;
-  padding:7px 10px;
-  border-radius:7px;
-  font-size:12px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 12px;
 }
+
+/* CONTACT */
+
 .contact {
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:center;
-  flex-wrap:wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.contact h3 { margin:0 0 6px; }
-.contact p { margin:0 0 10px; }
+
+.contact h3 {
+  margin: 0 0 6px;
+}
+
+.contact p {
+  margin: 0 0 10px;
+}
+
 .contact .email {
-  color:var(--blue);
-  overflow-wrap:anywhere;
+  color: var(--blue);
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
+
+/* FOOTER */
+
 .footer {
-  border-top:1px solid var(--line);
-  margin-top:45px;
-  padding-top:22px;
-  color:var(--muted);
-  font-size:12px;
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
+  border-top: 1px solid var(--line);
+  margin-top: 45px;
+  padding-top: 22px;
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
 }
+
+/* RESPONSIVE */
+
 @media(max-width:1050px) {
-  .layout { grid-template-columns:210px minmax(0,1fr); }
-  .hero { grid-template-columns:1fr; }
-  .analytics { grid-template-columns:1fr; }
-  .bar-row { grid-template-columns:105px minmax(0,1fr) 26px; }
+  .layout {
+    grid-template-columns: 210px minmax(0,1fr);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics {
+    grid-template-columns: 1fr;
+  }
 }
+
 @media(max-width:760px) {
-  .layout { display:block; }
+  .layout {
+    display: block;
+  }
+
   .sidebar {
-    height:auto;
-    position:static;
-    padding:16px 20px;
-    gap:12px;
+    height: auto;
+    position: static;
+    padding: 16px 20px;
+    gap: 12px;
   }
-  .nav { display:flex; gap:6px; flex-wrap:wrap; }
-  .nav-label,.sidebar-bottom { display:none; }
-  .nav a { padding:8px 10px; font-size:12px; }
-  .main { padding:20px 18px 45px; }
-  .hero { padding-top:36px; }
-  .project-grid,.about-grid { grid-template-columns:1fr; }
-  .topline { font-size:11px; }
-  .metrics { gap:9px; }
-  .metric { padding:15px; }
-  .metric strong { font-size:26px; }
-  .metric .label,.metric .foot { font-size:10px; }
+
+  .nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .nav-label,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .nav a {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .main {
+    padding: 20px 18px 45px;
+  }
+
+  .hero {
+    padding-top: 35px;
+  }
+
+  .project-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    gap: 9px;
+  }
+
+  .metric {
+    padding: 15px;
+  }
+
+  .metric strong {
+    font-size: 26px;
+  }
 }
+
 @media(max-width:420px) {
-  .metrics { grid-template-columns:1fr; }
-  .bar-row { grid-template-columns:90px minmax(0,1fr) 25px; }
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-row {
+    grid-template-columns: 90px minmax(0,1fr) 25px;
+  }
+
   .section-heading {
-    align-items:start;
-    flex-direction:column;
+    flex-direction: column;
+    align-items: start;
   }
 }
+
 @media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior:auto; }
-  .btn,.project { transition:none; }
-  .btn:hover,.project:hover { transform:none; }
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .project {
+    transition: none;
+  }
+
+  .btn:hover,
+  .project:hover {
+    transform: none;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <div class="layout">
 
+  <!-- SIDEBAR -->
+
   <aside class="sidebar">
-    <a class="brand" href="#overview" aria-label="Yash Hingorani portfolio home">
+
+    <a class="brand" href="#overview">
       <span class="brand-icon">YH</span>
-      <span>Risk Analytics<small>QUANTITATIVE PORTFOLIO</small></span>
+      <span>
+        Risk Analytics
+        <small>QUANTITATIVE PORTFOLIO</small>
+      </span>
     </a>
 
     <div>
       <div class="nav-label">Navigation</div>
+
       <nav class="nav" aria-label="Main navigation">
-        <a href="#overview" class="active"><span class="symbol">◫</span> Overview</a>
-        <a href="#projects"><span class="symbol">▦</span> Projects</a>
-        <a href="#about"><span class="symbol">◎</span> About &amp; Skills</a>
-        <a href="#contact"><span class="symbol">✉</span> Contact</a>
+        <a href="#overview" class="active">
+          <span class="symbol">◫</span> Overview
+        </a>
+
+        <a href="#projects">
+          <span class="symbol">▦</span> Projects
+        </a>
+
+        <a href="#about">
+          <span class="symbol">◎</span> About &amp; Skills
+        </a>
+
+        <a href="#contact">
+          <span class="symbol">✉</span> Contact
+        </a>
       </nav>
     </div>
 
     <div class="sidebar-bottom">
       Yash Hingorani<br>
       Financial Risk Management<br>
+
       <a href="https://github.com/YASHHIINGORANI67"
-         target="_blank" rel="noopener noreferrer">
+         target="_blank"
+         rel="noopener noreferrer">
         GitHub Profile ↗
       </a>
     </div>
+
   </aside>
+
+  <!-- MAIN -->
 
   <main class="main" id="overview">
 
     <div class="topline">
       <span>PORTFOLIO / OVERVIEW</span>
+
       <span class="status">
-        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-dot"></span>
         Public project portfolio
       </span>
     </div>
 
+    <!-- HERO -->
+
     <header class="hero">
+
       <div>
         <div class="eyebrow">
           FINANCIAL RISK MANAGEMENT · DATA ANALYTICS · FINTECH
@@ -513,25 +810,29 @@ h1 span { color:var(--blue); }
         </h1>
 
         <p class="intro">
-          I'm Yash Hingorani, a Master's student in Financial
-          Risk Management at Politecnico di Milano. I explore
-          financial markets through statistical modelling,
-          econometrics, and practical data-driven research.
+          I'm Yash Hingorani, a Master's student in
+          Financial Risk Management at Politecnico di Milano.
+          I explore financial markets through statistical
+          modelling, econometrics, and practical
+          data-driven research.
         </p>
 
         <div class="actions">
           <a class="btn primary" href="#projects">
             Explore Projects ↗
           </a>
+
           <a class="btn"
              href="https://github.com/YASHHIINGORANI67"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             View GitHub ↗
           </a>
         </div>
       </div>
 
       <div class="profile">
+
         <div>
           <div class="kicker">PROFILE SNAPSHOT</div>
           <h2>Yash Hingorani</h2>
@@ -539,109 +840,126 @@ h1 span { color:var(--blue); }
         </div>
 
         <div class="mini">
+
           <div class="mini-row">
             <span>Institution</span>
             <span>Politecnico di Milano</span>
           </div>
+
           <div class="mini-row">
             <span>Focus</span>
             <span>Quantitative Risk &amp; FinTech</span>
           </div>
+
           <div class="mini-row">
             <span>Tools used</span>
             <span>Python · Excel · Gretl</span>
           </div>
+
           <div class="mini-row">
             <span>Public projects</span>
             <span>05</span>
           </div>
+
         </div>
       </div>
+
     </header>
 
+    <!-- OVERVIEW -->
+
     <section class="section" aria-labelledby="overview-heading">
+
       <div class="section-heading">
         <h2 id="overview-heading">Portfolio overview</h2>
         <p>PROJECT-BASED ANALYTICS</p>
       </div>
 
       <div class="metrics">
+
         <div class="metric">
           <span class="label">Featured projects</span>
           <strong>05</strong>
           <span class="foot">GitHub repositories</span>
         </div>
+
         <div class="metric">
           <span class="label">Core risk domains</span>
           <strong>03</strong>
           <span class="foot">Credit · Market · Operational</span>
         </div>
+
         <div class="metric">
           <span class="label">Research tools</span>
           <strong>03</strong>
           <span class="foot">Python · Excel · Gretl</span>
         </div>
+
       </div>
 
       <div class="analytics">
+
+        <!-- PROJECT COVERAGE -->
+
         <div class="panel">
+
           <div class="panel-head">
             <h3>Project coverage</h3>
             <span class="panel-note">BY PRIMARY SUBJECT</span>
           </div>
 
           <div class="coverage">
+
             <div class="bar-row">
               <span>Credit risk</span>
-              <div class="bar-track">
-                <div class="bar-fill" style="width:100%"></div>
-              </div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
               <b>1</b>
             </div>
+
             <div class="bar-row">
               <span>Market risk</span>
-              <div class="bar-track">
-                <div class="bar-fill" style="width:100%"></div>
-              </div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
               <b>1</b>
             </div>
+
             <div class="bar-row">
               <span>Operational risk</span>
-              <div class="bar-track">
-                <div class="bar-fill" style="width:100%"></div>
-              </div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
               <b>1</b>
             </div>
+
             <div class="bar-row">
               <span>Fixed income</span>
-              <div class="bar-track">
-                <div class="bar-fill" style="width:100%"></div>
-              </div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
               <b>1</b>
             </div>
+
             <div class="bar-row">
               <span>Time series</span>
-              <div class="bar-track">
-                <div class="bar-fill" style="width:100%"></div>
-              </div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
               <b>1</b>
             </div>
+
           </div>
 
           <p class="note">
-            Each bar represents one featured project in that
-            subject. This is a project inventory, not a
-            financial performance chart.
+            Each bar represents one featured project.
+            This is project coverage, not investment performance.
           </p>
+
         </div>
 
+        <!-- METHODS -->
+
         <div class="panel">
+
           <div class="panel-head">
             <h3>Methods explored</h3>
             <span class="panel-note">RESEARCH TOOLKIT</span>
           </div>
 
           <div class="method-list">
+
             <div class="method">
               <span class="method-icon">↗</span>
               <div>
@@ -673,12 +991,19 @@ h1 span { color:var(--blue); }
                 <small>MACD and buy-and-hold comparisons</small>
               </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+    <!-- PROJECTS -->
+
     <section class="section" id="projects" aria-labelledby="projects-heading">
+
       <div class="section-heading">
         <h2 id="projects-heading">Featured projects</h2>
         <p>05 SELECTED STUDIES</p>
@@ -686,152 +1011,211 @@ h1 span { color:var(--blue); }
 
       <div class="project-grid">
 
+        <!-- PROJECT 1 -->
+
         <article class="project">
+
           <div class="project-top">
             <span class="project-index">PROJECT 01</span>
             <span class="category">CREDIT RISK</span>
           </div>
+
           <h3>Credit Risk Modelling</h3>
+
           <p>
             Probability of Default modelling using logistic
             regression, portfolio segmentation, and risk ratings
             to examine borrower default risk.
           </p>
+
           <div class="tags">
             <span class="tag">Logistic Regression</span>
             <span class="tag">PD Modelling</span>
             <span class="tag">Risk Ratings</span>
           </div>
+
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/credit-risk-modelling"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             Explore repository ↗
           </a>
+
         </article>
 
+        <!-- PROJECT 2 -->
+
         <article class="project">
+
           <div class="project-top">
             <span class="project-index">PROJECT 02</span>
             <span class="category">MARKET RISK</span>
           </div>
+
           <h3>Multi-Asset Market Risk Analysis</h3>
+
           <p>
             Risk analysis across equities, bonds, and absolute
             return strategies using VaR, Expected Shortfall,
             drawdown, and risk-adjusted performance metrics.
           </p>
+
           <div class="tags">
             <span class="tag">VaR</span>
             <span class="tag">Expected Shortfall</span>
             <span class="tag">Portfolio Risk</span>
           </div>
+
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/multi-asset-market-risk-analysis"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             Explore repository ↗
           </a>
+
         </article>
 
+        <!-- PROJECT 3 -->
+
         <article class="project">
+
           <div class="project-top">
             <span class="project-index">PROJECT 03</span>
             <span class="category">OPERATIONAL RISK</span>
           </div>
+
           <h3>Operational Risk Capital Modelling</h3>
+
           <p>
             Loss Distribution Approach, Extreme Value Theory,
             and Monte Carlo simulation for operational risk
             capital estimation.
           </p>
+
           <div class="tags">
             <span class="tag">LDA</span>
             <span class="tag">EVT</span>
             <span class="tag">Monte Carlo</span>
           </div>
+
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/operational-risk-capital-modelling"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             Explore repository ↗
           </a>
+
         </article>
 
+        <!-- PROJECT 4 -->
+
         <article class="project">
+
           <div class="project-top">
             <span class="project-index">PROJECT 04</span>
             <span class="category">FIXED INCOME</span>
           </div>
+
           <h3>Sovereign Bond Yield Analysis</h3>
+
           <p>
             Cross-sectional econometric analysis of 10-year
             sovereign government bond yields across 50
             countries using Python, OLS regression,
             diagnostic tests, and model refinement.
           </p>
+
           <div class="tags">
             <span class="tag">OLS</span>
             <span class="tag">Bond Yields</span>
             <span class="tag">Python</span>
           </div>
+
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             Explore repository ↗
           </a>
+
         </article>
 
+        <!-- PROJECT 5 -->
+
         <article class="project">
+
           <div class="project-top">
             <span class="project-index">PROJECT 05</span>
             <span class="category">TIME SERIES</span>
           </div>
+
           <h3>Financial Time Series Risk &amp; Trading Strategy Analysis</h3>
+
           <p>
             MercadoLibre (MELI) return analysis from January
             2022 to January 2026, combining historical and
             Student-t VaR and Expected Shortfall, ARMA,
             GARCH, and MACD strategy evaluation.
           </p>
+
           <div class="tags">
             <span class="tag">ARMA / GARCH</span>
             <span class="tag">MACD</span>
             <span class="tag">Python / Gretl</span>
           </div>
+
           <a class="project-link"
              href="https://github.com/YASHHIINGORANI67/financial-time-series-risk-analysis"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             Explore repository ↗
           </a>
+
         </article>
 
       </div>
+
     </section>
 
+    <!-- ABOUT -->
+
     <section class="section" id="about" aria-labelledby="about-heading">
+
       <div class="section-heading">
         <h2 id="about-heading">About &amp; technical skills</h2>
         <p>BACKGROUND / METHODS</p>
       </div>
 
       <div class="about-grid">
+
         <div class="panel">
+
           <h3>About me</h3>
+
           <p>
             I'm a Master's student in Financial Risk Management
             at Politecnico di Milano, with interests in
             quantitative risk modelling, financial data
             analytics, and FinTech.
           </p>
+
           <p>
             My projects apply statistical and computational
             techniques to credit, market, and operational
             risk, as well as fixed-income markets and
             financial time series.
           </p>
+
         </div>
 
         <div class="panel">
+
           <h3>Technical toolkit</h3>
-          <p>Tools and methods used across the featured projects:</p>
+
+          <p>
+            Tools and methods used across my featured projects:
+          </p>
+
           <div class="skills">
             <span>Python</span>
             <span>pandas</span>
@@ -846,24 +1230,34 @@ h1 span { color:var(--blue); }
             <span>VaR / ES</span>
             <span>Monte Carlo</span>
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+    <!-- CONTACT -->
+
     <section class="section" id="contact" aria-labelledby="contact-heading">
+
       <div class="section-heading">
         <h2 id="contact-heading">Contact</h2>
         <p>LET'S CONNECT</p>
       </div>
 
       <div class="panel contact">
+
         <div>
           <h3>Interested in discussing quantitative risk?</h3>
+
           <p>
             Reach out about financial risk management,
             research, or related opportunities.
           </p>
-          <a class="email" href="mailto:Yash.hingorani@gsom.polimi.it">
+
+          <a class="email"
+             href="mailto:Yash.hingorani@gsom.polimi.it">
             Yash.hingorani@gsom.polimi.it
           </a>
         </div>
@@ -872,8 +1266,12 @@ h1 span { color:var(--blue); }
            href="mailto:Yash.hingorani@gsom.polimi.it">
           Send email ↗
         </a>
+
       </div>
+
     </section>
+
+    <!-- FOOTER -->
 
     <footer class="footer">
       <span>© 2026 Yash Hingorani</span>
@@ -881,16 +1279,19 @@ h1 span { color:var(--blue); }
     </footer>
 
   </main>
+
 </div>
 
 <script>
 (function() {
-  const links = [...document.querySelectorAll('.nav a')];
+  const links = [...document.querySelectorAll(".nav a")];
 
-  links.forEach(link => link.addEventListener('click', () => {
-    links.forEach(item => item.classList.remove('active'));
-    link.classList.add('active');
-  }));
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      links.forEach(item => item.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
 })();
 </script>
 
