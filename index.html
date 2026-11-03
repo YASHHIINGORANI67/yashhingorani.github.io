@@ -377,7 +377,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 </div>
 
 <div class="note">
-<strong>Research transparency:</strong> All numerical results shown in this dashboard are taken from reported project information or previously identified corrected MELI Python outputs. Project scope figures are not investment performance. Where model outputs have not been verified, the dashboard provides a methodology overview rather than fabricated results. Academic modelling estimates are not regulatory capital determinations or forecasts.
+<strong>Research transparency:</strong> Credit and multi-asset statistics are quoted from the uploaded academic group reports; they have not been independently recalculated from workbooks. Sovereign statistics are calculated from the project CSV. MELI values use previously corrected Python estimates. Project scope figures are not investment performance. Academic modelling estimates are not regulatory capital determinations or forecasts.
 </div>
 </div>
 </section>
@@ -702,37 +702,37 @@ const dashboards={
  },
  credit:{
   title:"Credit Risk Modelling",
-  description:"Excel-based Probability of Default research and credit risk assessment, supported by a project report.",
+  description:"Logistic-regression PD model for approximately 15,553 borrowers, calibrated to a 2% average PD target.",
   slug:"credit-risk-modelling",
   metrics:[
-   ["PD","Core risk measure","Probability of Default"],
-   ["Excel","Primary tool","Model workbook"],
-   ["Report","Supporting file","Academic analysis"],
-   ["Model","Research focus","Credit assessment"]
+   ["82.15%","AUC","Reported discrimination"],
+   ["64.30%","Gini","Reported model performance"],
+   ["2.43%","Default rate","Observed portfolio"],
+   ["2.00%","Target PD","Intercept calibration"]
   ],
-  type:"process",
-  heading:"Credit risk modelling workflow",
-  methods:["Credit assessment","Probability of Default","Financial modelling","Risk classification"],
-  stages:["Borrower information","Risk assessment","PD modelling","Credit interpretation"],
-  interpretation:"The repository establishes the credit-risk modelling scope. Numerical PD distributions, classification accuracy or model discrimination statistics should only be added after reading the workbook and report.",
-  sourceNote:"Project scope from public README. Workflow is a conceptual representation, not a measured result."
+  type:"credit",
+  heading:"Reported model discrimination",
+  methods:["Logistic regression","Credit utilization","99th-percentile cap","PD calibration","Rating scale"],
+  stages:[],
+  interpretation:"The academic report finds that greater credit utilization is associated with higher estimated default probability. AUC of 82.15% and Gini of 64.30% are reported, with the model calibrated to a 2% average PD. The model uses one main explanatory variable; independent validation or out-of-sample performance is not established by the report.",
+  sourceNote:"Source: Group 1_Credit Risk.docx, pages 1, 3–6. Figures are reported by the project team, not independently re-estimated."
  },
  market:{
   title:"Multi-Asset Market Risk Analysis",
-  description:"Academic comparison of US equities, bonds and absolute-return strategies using market-risk and risk-adjusted performance metrics.",
+  description:"Reported winners across US equities, bonds and absolute-return strategies, assessed on risk-adjusted performance and tail exposure.",
   slug:"multi-asset-market-risk-analysis",
   metrics:[
-   ["3","Asset categories","Equities / Bonds / Absolute return"],
-   ["VaR","Tail-loss threshold","Risk metric"],
-   ["ES","Tail-loss severity","Risk metric"],
-   ["Sharpe","Performance metric","Risk-adjusted return"]
+   ["0.444","Equity US 1 Sharpe","Selected equity"],
+   ["0.689","Bond 3 Sortino","Selected bond"],
+   ["0.96%","Equity MN volatility","Selected absolute return"],
+   ["−2.53%","Equity MN drawdown","Reported MaxDD"]
   ],
-  type:"process",
-  heading:"Three-asset research framework",
-  methods:["Value at Risk","Expected Shortfall","Maximum Drawdown","Sharpe","Sortino"],
-  stages:["US Equities","Bonds","Absolute Return","Risk comparison"],
-  interpretation:"The repository documents analysis across three investment categories. It does not publish a verified ranking or numerical portfolio performance results in its README.",
-  sourceNote:"Categories and analytical methods are reported in the public repository. Diagram is conceptual."
+  type:"market",
+  heading:"Reported Expected Shortfall by selected strategy",
+  methods:["Value at Risk","Expected Shortfall","Maximum Drawdown","Sharpe","Sortino","Skewness","Kurtosis"],
+  stages:[],
+  interpretation:"The report selects Equity US 1, Bond 3 and Equity Market Neutral. Bond 3 is preferred to Bond 5 despite Bond 5's higher Sharpe ratio, because Bond 5 exhibits particularly severe negative skewness and excess kurtosis. These are historical academic results, not a forward-looking recommendation.",
+  sourceNote:"Source: Market Risk Report, pages 6–9. Expected Shortfall values are reported as negative returns; the chart plots loss magnitudes. Return-frequency interpretation follows the report's weekly dataset."
  },
  operational:{
   title:"Operational Risk Capital Modelling",
@@ -822,6 +822,14 @@ function meliChart(mode){
 }
 
 /* REAL OPERATIONAL COMPARISON CHART */
+function reportedBars(items,max,tickStep,unit){
+ let svg="";
+ for(let t=0;t<=max+0.0001;t+=tickStep){const x=170+t/max*345;svg+=`<line x1="${x}" y1="18" x2="${x}" y2="270" stroke="var(--line)"/>`;svg+=svgText(x,293,t.toFixed(0)+unit,"middle",11);}
+ items.forEach((item,i)=>{const y=42+i*72,w=item.value/max*345;svg+=svgText(161,y+20,item.label,"end",12);svg+=`<rect x="170" y="${y}" width="${w}" height="36" rx="5" fill="${item.color}"><title>${item.label}: ${item.value}${unit}</title></rect>`;svg+=svgText(Math.min(179+w,555),y+24,item.value.toFixed(2)+unit,"start",11);});
+ return svg;
+}
+function creditChart(){return reportedBars([{label:"AUC",value:82.15,color:"var(--blue)"},{label:"Gini",value:64.30,color:"var(--teal)"}],100,25,"%");}
+function marketChart(){return reportedBars([{label:"Equity US 1",value:5.88,color:"var(--blue)"},{label:"Bond 3",value:1.37,color:"var(--teal)"},{label:"Equity MN",value:0.24,color:"var(--blue)"}],6,2,"%");}
 function sovereignChart(){
  const items=[["Argentina",55],["Ghana",28],["Turkey",26.5],["Ukraine",22],["Pakistan",16]];
  let svg="";
@@ -909,6 +917,8 @@ function renderDashboard(key){
  if(d.type==="risk")chart=meliChart(currentRiskMode);
  if(d.type==="operational")chart=operationalChart();
  if(d.type==="sovereign")chart=sovereignChart();
+ if(d.type==="credit")chart=creditChart();
+ if(d.type==="market")chart=marketChart();
  if(d.type==="process")chart=processChart(d.stages);
 
  let details="";
@@ -926,6 +936,27 @@ function renderDashboard(key){
    </div>
    <div class="fact"><strong>2.30 percentage points</strong><small>Student-t minus Historical VaR</small></div>
    <div class="fact"><strong>11.26 percentage points</strong><small>Student-t minus Historical ES</small></div>`;
+ }else if(key==="credit"){
+  details=`<h3>Reported credit risk model results</h3>
+  <div class="table-wrap"><table><thead><tr><th>Measure</th><th>Report value</th></tr></thead><tbody>
+  <tr><td>Borrowers</td><td>Approximately 15,553</td></tr>
+  <tr><td>Observed default rate</td><td>2.43%</td></tr>
+  <tr><td>AUC</td><td>82.15%</td></tr>
+  <tr><td>Gini coefficient</td><td>64.30%</td></tr>
+  <tr><td>Calibrated mean PD target</td><td>2.00%</td></tr>
+  <tr><td>99th-percentile utilization cap</td><td>1.2268</td></tr>
+  <tr><td>Rating classes</td><td>10 (AAA through D)</td></tr>
+  </tbody></table></div><p class="muted">The AUC/Gini chart shows discrimination statistics, not an ROC curve. Values are from the academic group report; independent validation and out-of-sample testing are not documented.</p>
+  <p><a class="repo-link" href="https://github.com/YASHHIINGORANI67/credit-risk-modelling/blob/main/Group%201_Credit%20Risk.docx" target="_blank" rel="noopener noreferrer">Read original credit-risk report ↗</a></p>`;
+ }else if(key==="market"){
+  details=`<h3>Selected funds and reported results</h3>
+  <div class="table-wrap"><table><thead><tr><th>Selected strategy</th><th>Sharpe / Sortino</th><th>ES</th><th>MaxDD</th></tr></thead><tbody>
+  <tr><td>Equity US 1</td><td>0.444 / 0.390</td><td>−5.88%</td><td>−53.30%</td></tr>
+  <tr><td>Bond 3</td><td>0.804 / 0.689</td><td>−1.37%</td><td>−15.33%</td></tr>
+  <tr><td>Equity Market Neutral</td><td>0.872 / 0.973</td><td>−0.24%</td><td>−2.53%</td></tr>
+  </tbody></table></div>
+  <p class="muted">ES chart compares absolute loss magnitudes. The project used weekly price observations; values should not be read as daily or annual estimates. Bond 3 was selected over Bond 5 because the latter had substantial negative skewness (−2.51) and excess kurtosis (40.15), despite its higher Sharpe.</p>
+  <p><a class="repo-link" href="https://github.com/YASHHIINGORANI67/multi-asset-market-risk-analysis/blob/main/Market%20Risk%20Report.pdf" target="_blank" rel="noopener noreferrer">Read original market-risk report ↗</a></p>`;
  }else if(key==="sovereign"){
   details=`<h3>Verified descriptive statistics</h3><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Countries</td><td>50</td></tr><tr><td>Mean yield</td><td>7.78%</td></tr><tr><td>Median yield</td><td>4.30%</td></tr><tr><td>Minimum: Switzerland</td><td>0.90%</td></tr><tr><td>Maximum: Argentina</td><td>55.00%</td></tr></tbody></table></div><p><a class="repo-link" href="https://github.com/YASHHIINGORANI67/sovereign-bond-yield-analysis/blob/main/bond_yield_data.csv" target="_blank" rel="noopener noreferrer">Verify against source CSV ↗</a></p><p class="muted">Sample descriptions, not live market data or regression estimates.</p>`;
  }else if(key==="operational"){
@@ -962,11 +993,8 @@ function renderDashboard(key){
      <h3>${d.heading}</h3>
      ${chartControls}
     </div>
-    ${d.type==="process"?"":`
-     <div class="legend">
-      <span><i class="dot blue"></i>${key==="operational"?"Monte Carlo":"Historical"}</span>
-      <span><i class="dot teal"></i>${key==="operational"?"Adjusted SLA":"Student-t"}</span>
-     </div>`}
+    ${d.type==="risk"||d.type==="operational"?`
+     <div class="legend"><span><i class="dot blue"></i>${key==="operational"?"Monte Carlo":"Historical"}</span><span><i class="dot teal"></i>${key==="operational"?"Adjusted SLA":"Student-t"}</span></div>`:""}
     <div class="chart-frame">
      <svg viewBox="0 0 600 325" role="img"
       aria-label="${d.heading}">${chart}</svg>
