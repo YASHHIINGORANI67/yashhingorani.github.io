@@ -200,6 +200,9 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 .method-item summary{cursor:pointer;font-weight:700;font-size:13px;padding:16px 0}
 .method-item p{font-size:12px;color:var(--muted);margin:0 0 17px}
 .contact-links{display:grid;gap:10px}
+.contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center;justify-content:flex-start}
+.contact-actions .btn{flex:0 0 auto;min-height:40px;padding:11px 17px;font-size:12px}
+@media(max-width:440px){.contact-actions{gap:8px}.contact-actions .btn{padding:10px 12px;font-size:11px}}
 .contact-link{
  display:block;border:1px solid var(--line);background:var(--panel);
  border-radius:9px;padding:13px 15px;font-size:12px;font-weight:750;
@@ -522,20 +525,17 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <!-- CONTACT -->
 <section class="section alt" id="contact">
 <div class="container">
-<div class="contact-grid">
 <div class="reveal">
 <div class="eyebrow">Contact</div>
 <h2>Let's connect.</h2>
 <p class="muted">Interested in financial risk management, quantitative finance, data analytics and related professional opportunities.</p>
+</div>
+<div class="contact-actions reveal">
 <a class="btn primary" href="mailto:Yash.hingorani@gsom.polimi.it">Send an Email ↗</a>
-</div>
-<div class="contact-links reveal">
-<a class="contact-link" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
-<a class="contact-link" href="https://github.com/YASHHIINGORANI67" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
-<a class="contact-link" href="mailto:Yash.hingorani@gsom.polimi.it">Yash.hingorani@gsom.polimi.it ↗</a>
-<a class="contact-link" href="research-brief.html">Printable Research Brief ↗</a>
-<a class="contact-link" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
-</div>
+<a class="btn primary" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
+<a class="btn primary" href="https://github.com/YASHHIINGORANI67" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+<a class="btn primary" href="research-brief.html">Printable Research Brief ↗</a>
+<a class="btn primary" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
 </div>
 </div>
 </section>
