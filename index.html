@@ -288,7 +288,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <a class="btn" href="#projects">Research Projects</a>
 <a class="btn" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 <a class="btn" href="research-brief.html">Research Brief ↗</a>
-<a class="btn hidden" id="heroCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
+<a class="btn" id="heroCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
 </div>
 </div>
 <aside class="panel profile reveal">
@@ -534,7 +534,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <a class="contact-link" href="https://github.com/YASHHIINGORANI67" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
 <a class="contact-link" href="mailto:Yash.hingorani@gsom.polimi.it">Yash.hingorani@gsom.polimi.it ↗</a>
 <a class="contact-link" href="research-brief.html">Printable Research Brief ↗</a>
-<a class="contact-link hidden" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
+<a class="contact-link" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
 </div>
 </div>
 </div>
@@ -1098,20 +1098,7 @@ if(!reducedMotion && "IntersectionObserver" in window){
  });
 }
 
-/* OPTIONAL CV — HIDDEN UNTIL UPLOADED */
-const cvLinks=[
- document.getElementById("heroCV"),
- document.getElementById("contactCV")
-];
-fetch("Yash_Hingorani_CV_One_Page.pdf",{method:"HEAD"})
- .then(response=>{
-  if(!response.ok)return;
-  const type=response.headers.get("content-type")||"";
-  if(type.includes("application/pdf")){
-   cvLinks.forEach(link=>link.classList.remove("hidden"));
-  }
- })
- .catch(()=>{});
+/* CV file is uploaded in this repository; show download links directly. */
 document.querySelectorAll("[data-jump-analysis]").forEach(link=>link.addEventListener("click",()=>{const key=link.dataset.jumpAnalysis;const tab=document.querySelector('[data-analysis="'+key+'"]');if(tab)tab.click();}));
 </script>
 </body>
