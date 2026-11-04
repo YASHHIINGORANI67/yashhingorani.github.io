@@ -200,12 +200,6 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 .method-item summary{cursor:pointer;font-weight:700;font-size:13px;padding:16px 0}
 .method-item p{font-size:12px;color:var(--muted);margin:0 0 17px}
 .contact-links{display:grid;gap:10px}
-.email-form{display:grid;gap:8px}
-.email-form label{font-size:12px;font-weight:750;margin-top:8px}
-.email-form input,.email-form select,.email-form textarea{width:100%;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;font-size:13px}
-.email-form textarea{resize:vertical}
-.email-form :is(input,select,textarea):focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.email-form button{justify-self:start;margin-top:8px}
 .contact-link{
  display:block;border:1px solid var(--line);background:var(--panel);
  border-radius:9px;padding:13px 15px;font-size:12px;font-weight:750;
@@ -528,29 +522,19 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <!-- CONTACT -->
 <section class="section alt" id="contact">
 <div class="container">
-<div class="section-head reveal"><div class="eyebrow">Contact</div><h2>Let's connect.</h2><p>For research collaboration, recruitment opportunities or professional enquiries, send a message using the form or reach me directly.</p></div>
 <div class="contact-grid">
-<div class="panel reveal">
-<h3>Send a message</h3>
-<form id="contactForm" class="email-form">
-<label for="contactName">Your name</label><input id="contactName" name="name" type="text" autocomplete="name" required maxlength="120" placeholder="Your full name">
-<label for="contactEmail">Your email</label><input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="180" placeholder="name@example.com">
-<label for="contactSubject">Subject</label><select id="contactSubject" name="subject" required><option value="">Select a subject</option><option>Recruitment opportunity</option><option>Research collaboration</option><option>Project enquiry</option><option>Other professional enquiry</option></select>
-<label for="contactMessage">Your message</label><textarea id="contactMessage" name="message" rows="5" maxlength="4000" required placeholder="Tell me a little about your enquiry..."></textarea>
-<button class="btn primary" type="submit">Compose Email ↗</button>
-<p class="muted" style="font-size:11px">This opens your email app with the message prepared. Review and press Send there; the website does not transmit or store your details.</p>
-</form>
+<div class="reveal">
+<div class="eyebrow">Contact</div>
+<h2>Let's connect.</h2>
+<p class="muted">Interested in financial risk management, quantitative finance, data analytics and related professional opportunities.</p>
+<a class="btn primary" href="mailto:Yash.hingorani@gsom.polimi.it">Send an Email ↗</a>
 </div>
-<div class="panel reveal">
-<h3>Contact details &amp; resources</h3>
-<p class="muted">Based in Milan, Italy. Open to opportunities in financial risk management, quantitative research and financial analytics.</p>
-<div class="contact-links">
-<a class="contact-link" href="mailto:Yash.hingorani@gsom.polimi.it">Email · Yash.hingorani@gsom.polimi.it ↗</a>
+<div class="contact-links reveal">
 <a class="contact-link" href="https://www.linkedin.com/in/yashhingorani" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
 <a class="contact-link" href="https://github.com/YASHHIINGORANI67" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+<a class="contact-link" href="mailto:Yash.hingorani@gsom.polimi.it">Yash.hingorani@gsom.polimi.it ↗</a>
 <a class="contact-link" href="research-brief.html">Printable Research Brief ↗</a>
-<a class="contact-link" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download One-Page CV ↓</a>
-</div>
+<a class="contact-link" id="contactCV" href="Yash_Hingorani_CV_One_Page.pdf" download>Download CV ↓</a>
 </div>
 </div>
 </div>
@@ -566,18 +550,6 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 
 <script>
 "use strict";
-
-/* CONTACT: compose in visitor's email client; no backend or data collection. */
-document.getElementById("contactForm").addEventListener("submit",function(event){
- event.preventDefault();
- const name=document.getElementById("contactName").value.trim();
- const email=document.getElementById("contactEmail").value.trim();
- const subject=document.getElementById("contactSubject").value;
- const message=document.getElementById("contactMessage").value.trim();
- if(!name||!email||!subject||!message)return;
- const body="From: "+name+"\nReply-to: "+email+"\n\n"+message;
- window.location.href="mailto:Yash.hingorani@gsom.polimi.it?subject="+encodeURIComponent(subject+" — "+name)+"&body="+encodeURIComponent(body);
-});
 
 /* LINKS */
 const base = "https://github.com/YASHHIINGORANI67/";
