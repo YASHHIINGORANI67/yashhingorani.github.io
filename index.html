@@ -5,14 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Yash Hingorani — Financial Risk Management and Quantitative Research. Five projects spanning credit, market, operational, sovereign bond and financial time series risk.">
+<meta name="description" content="Yash Hingorani — Financial Risk Management and Quantitative Research. Five documented research projects and AegisRisk, a Python portfolio risk application in development.">
 <meta name="author" content="Yash Hingorani">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yashhiingorani67.github.io/">
 <meta property="og:title" content="Yash Hingorani | Quantitative Risk Research">
-<meta property="og:description" content="Financial risk analytics, empirical research, econometrics and portfolio modelling.">
+<meta property="og:description" content="Five financial risk research projects and AegisRisk, a Python portfolio risk application in development.">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yash Hingorani | Financial Risk & Quantitative Research">
+<meta name="twitter:description" content="Five documented financial risk research projects and AegisRisk, a portfolio risk application in development.">
+<link rel="canonical" href="https://yashhiingorani67.github.io/">
 <title>Yash Hingorani | Quantitative Risk Research</title>
 
 <style>
@@ -123,6 +126,11 @@ h1 span{color:var(--blue)}
  background:var(--tint);color:var(--blue);
  border:1px solid var(--line);border-radius:6px
 }
+.work-progress{display:inline-block;background:var(--tint);border:1px solid var(--line);color:var(--blue);font-size:11px;font-weight:750;border-radius:7px;padding:5px 10px}
+.aegis-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:18px;align-items:stretch}
+.aegis-list{padding-left:19px;color:var(--muted);font-size:13px}
+.aegis-list li{margin:8px 0}
+@media(max-width:760px){.aegis-grid{grid-template-columns:1fr}}
 /* ANALYTICS */
 .tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
 .tab,.filter-btn,.chart-btn{
@@ -265,6 +273,7 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
+<a href="#aegisrisk">AegisRisk</a>
 <a href="#analytics">Analytics</a>
 <a href="#highlights">Highlights</a>
 <a href="#skills">Skills</a>
@@ -347,13 +356,13 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 </div></section>
 <!-- RECRUITER PROFILE -->
 <section class="section" id="career"><div class="container">
-<div class="section-head"><div class="eyebrow">Professional Profile</div><h2>Financial risk research, backed by evidence</h2><p>Applied quantitative research for risk management, financial analytics and quantitative finance opportunities.</p></div>
+<div class="section-head"><div class="eyebrow">Professional Profile</div><h2>Financial risk research, backed by evidence</h2><p>Master’s-level financial risk research and practical Python modelling for investment risk, portfolio analysis, quantitative research and financial analytics roles.</p></div>
 <div class="domain-grid">
 <div class="domain"><b>Risk measurement</b><p>VaR, Expected Shortfall, portfolio drawdown, credit risk and operational loss simulation.</p></div>
 <div class="domain"><b>Quantitative modelling</b><p>Python econometrics, time-series methods, MATLAB simulation and Excel financial models.</p></div>
 <div class="domain"><b>Research reporting</b><p>Model documentation, assumptions, diagnostics and links to original research repositories.</p></div>
 </div>
-<div class="panel" style="margin-top:18px"><h3>Recruiter research brief</h3><p>Five academic research projects spanning credit, market, operational and sovereign risk. The dashboard distinguishes verified descriptive statistics and reported model estimates. The source repositories contain original reports and model files for technical review.</p><p><strong>Career interests:</strong> Financial Risk Analyst · Market Risk Analyst · Credit Risk Analyst · Quantitative Risk Research · Financial Data Analytics.</p><div class="actions"><a class="btn primary" href="#projects">Review projects ↗</a><a class="btn" href="#contact">Get in touch ↗</a></div></div>
+<div class="panel" style="margin-top:18px"><h3>Recruiter research brief</h3><p>Five academic research projects, plus a separately labelled Python application in development, spanning credit, market, operational and sovereign risk. The dashboard distinguishes verified descriptive statistics and reported model estimates. The source repositories contain original reports and model files for technical review.</p><p><strong>Career interests:</strong> Financial Risk Analyst · Market Risk Analyst · Credit Risk Analyst · Quantitative Risk Research · Financial Data Analytics.</p><div class="actions"><a class="btn primary" href="#projects">Review projects ↗</a><a class="btn" href="#contact">Get in touch ↗</a></div></div>
 </div></section>
 <!-- OVERVIEW -->
 <section class="section" id="overview">
@@ -424,6 +433,38 @@ td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:
 <div class="fact"><strong>19.93%</strong><small>Student-t 99.9% VaR loss magnitude</small></div>
 <div class="fact"><strong>Python · Gretl · Excel</strong><small>Research tools</small></div>
 </div>
+</div>
+</div>
+</section>
+
+<!-- IN-DEVELOPMENT APPLICATION -->
+<section class="section alt" id="aegisrisk">
+<div class="container">
+<div class="section-head reveal">
+<div class="eyebrow">Application in Development</div>
+<h2>AegisRisk — Portfolio Risk Management</h2>
+<p>A separate, hands-on Python application project, being developed iteratively. This is a work in progress, not one of the five completed academic research studies.</p>
+</div>
+<div class="aegis-grid">
+<article class="panel reveal">
+<span class="work-progress">In development · Python</span>
+<h3 style="margin-top:15px">From portfolio holdings to actionable risk insights</h3>
+<p>AegisRisk is designed to help an investment or portfolio analyst examine portfolio value, asset allocation, concentration and hypothetical market stress.</p>
+<ul class="aegis-list">
+<li><strong>Implemented in the learning project:</strong> portfolio calculations, allocation and concentration alerts, stress scenarios, loss attribution and rankings, reusable functions and hypothetical rebalancing.</li>
+<li><strong>Next development goals:</strong> historical market data, correlation, VaR/Expected Shortfall, optimization, visual dashboard, tests and reproducible documentation.</li>
+<li><strong>Verification:</strong> the current development work is being built in a separate ChatGPT-assisted coding session; no public repository or independently verified live deployment is claimed here.</li>
+</ul>
+</article>
+<aside class="panel reveal">
+<div class="eyebrow">Development roadmap</div>
+<div class="fact"><small>Current focus</small><strong>Portfolio risk engine</strong></div>
+<div class="fact"><small>Primary language</small><strong>Python</strong></div>
+<div class="fact"><small>Target use case</small><strong>Investment / Portfolio Risk Analysis</strong></div>
+<div class="fact"><small>Current status</small><strong>Prototype in progress</strong></div>
+<div class="fact"><small>Future deliverable</small><strong>Documented, tested application</strong></div>
+<p class="muted" style="font-size:12px">Features listed as planned are not presented as completed or validated.</p>
+</aside>
 </div>
 </div>
 </section>
